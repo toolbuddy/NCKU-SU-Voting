@@ -12,3 +12,6 @@ dist
 
 # Backpack build
 build
+
+# config file
+model/config/default.js
