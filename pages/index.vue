@@ -139,18 +139,95 @@ font-weight: 100px;
 color: #A2A2A2;
 }
 
-@media screen and (min-width: 600 px) and (max-width: 2560 px)
+@media screen and  (orientation:landscape) 
 {
-  img.homephoto 
-  {
-    position: fixed;
-    top: 10%;
-    height: 70%;
-    width: auto;
-    display: block;
-    margin: auto;
-  }
+      
+      img.homephoto 
+      {
+      position: absolute;
+      left: 35%;
+      top: 7%;
+      height: 70%;
+      width: 70%;
+      display: block;
+      margin: auto;
+      }
+      .container
+      {
+        position: absolute;
+        top: 0%;
+        height:20%;
+        width: 100%;
+        background-color:rgba(223, 223, 223, 0.151);
+      }
+      .hometitle 
+      {
+       position: absolute;
+       top: 50%;
+       left: 0%;
+       width: 100%;
+       height:30vh;
+       margin: auto;
+       background-color:rgba(81,81,81,0.48);
+       border:0px;
+       z-index: 0;
+      }
+
+      ._hometitle {
+          position: absolute;
+          top: 5%;
+          left: 10%;
+          height: 10vh;
+          text-align: left;
+      }
+
 }
+
+@media screen and(orientation:landscape) and(max-width: width 1024px)
+
+{
+      img.homephoto 
+      {
+      position: absolute;
+      left: 35%;
+      top: 5%;
+      height: 300px;
+      width: 300px;
+      display: block;
+      margin: auto;
+      }
+      .container
+      {
+        position: absolute;
+        top: 0%;
+        height:40px;
+        width: 100%;
+        background-color:rgba(223, 223, 223, 0.151);
+      }
+      .hometitle 
+      {
+       position: absolute;
+       top: 50%;
+       left: 0%;
+       width: 100%;
+       height:30vh;
+       margin: auto;
+       background-color:rgba(81,81,81,0.48);
+       border:0px;
+       z-index: 0;
+      }
+
+      ._hometitle {
+          position: absolute;
+          top: 5%;
+          left: 10%;
+          height: 10vh;
+          text-align: left;
+      }
+
+     }
+     /* orientation: portrait   直式*/
+     /* orientation: landscape  橫式*/
 
 img.homephoto 
   {
@@ -203,11 +280,6 @@ img.homephoto
 }
 ._container
 {
-  /*position: absolute;
-  left: 10%;
-  text-align: left;
-  line-height:6.1%;*/
-
   position: fixed;
   top: 0px;
   left: 3%;
