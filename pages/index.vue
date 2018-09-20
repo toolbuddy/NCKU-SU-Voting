@@ -1,5 +1,14 @@
 <template>
   <div>
+
+    <div  class="container">
+      <div  class="_container">
+      <h3>成大學生會</h3>
+      </div>
+      <img class="menuphoto" src="~/assets/img/options.png"> 
+    </div>
+    <!--
+    temporarily hide the FB login button
     <div  class="container">
       <bighead :isLogin="isLogin" :profile="profile"></bighead>
       <div v-if="!isLogin">
@@ -9,14 +18,18 @@
           <button type="button" v-on:click="logout"> Logout</button>
       </div>
     </div>
+    -->
+
     <img class="homephoto" src="~/assets/img/home.png">
 
     <div class="hometitle">
       <div class="_hometitle">
-      WHY辯論會？<br>
-      一些副標文字，說明這則新聞的內容。
+      <h1>WHY辯論會？</h1>
+      <h2>一些副標文字，<br>說明這則新聞的內容。</h2>
       </div>
     </div>
+
+
   </div>
 </template>
 
@@ -106,6 +119,26 @@ export default {
 </script>
 
 <style scoped>
+
+h1{
+font-family: ‘segoe ui’, sans-serif;
+font-size: 26px;
+font-weight: 100px;
+color: white;
+}
+h2{
+font-family: ‘segoe ui’, sans-serif;
+font-size: 18px;
+font-weight: 100px;
+color: white;
+}
+h3{
+font-family: ‘segoe ui’, sans-serif;
+font-size: 16px;
+font-weight: 100px;
+color: #A2A2A2;
+}
+
 @media screen and (min-width: 600 px) and (max-width: 2560 px)
 {
   img.homephoto 
@@ -119,12 +152,21 @@ export default {
   }
 }
 
-  img.homephoto 
+img.homephoto 
   {
     position: fixed;
     top: 20%;
     height: 56%;
     width: auto;
+    display: block;
+    margin: auto;
+  }
+
+  img.menuphoto 
+  {
+    position: fixed;
+    top: 10px;
+    right: 3%;
     display: block;
     margin: auto;
   }
@@ -135,7 +177,7 @@ export default {
     top: 64.3%;
     left: 0%;
     width: 100%;
-    height:20vh;
+    height:23vh;
     margin: auto;
     background-color:rgba(81,81,81,0.48);
     border:0px;
@@ -144,7 +186,7 @@ export default {
 
 ._hometitle {
     position: absolute;
-    top: 15%;
+    top: 10%;
     left: 10%;
     height: 10vh;
     text-align: left;
@@ -158,6 +200,19 @@ export default {
   height:6.1%;
   width: 100%;
   background-color:rgba(223, 223, 223, 0.151);
+}
+._container
+{
+  /*position: absolute;
+  left: 10%;
+  text-align: left;
+  line-height:6.1%;*/
+
+  position: fixed;
+  top: 0px;
+  left: 3%;
+  display: block;
+  margin: auto;
 }
 
 
