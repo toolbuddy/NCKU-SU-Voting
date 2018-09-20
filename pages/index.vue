@@ -9,7 +9,6 @@
           <button type="button" v-on:click="logout"> Logout</button>
       </div>
     </div>
-
     <img class="homephoto" src="~/assets/img/home.png">
 
     <div class="hometitle">
@@ -18,8 +17,6 @@
       一些副標文字，說明這則新聞的內容。
       </div>
     </div>
-
-
   </div>
 </template>
 
