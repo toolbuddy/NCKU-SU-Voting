@@ -1,7 +1,6 @@
 <template>
   <div>
     <nuxt/>
-    <my-footer/>
   </div>
 </template>
 
@@ -16,13 +15,6 @@ export default {
 </script>
 
 <style>
-.container
-{
-  margin: 0;
-  width: 100%;
-  padding: 100px 0;
-  text-align: center;
-}
 
 .button, .button:visited
 {
