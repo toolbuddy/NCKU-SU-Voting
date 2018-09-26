@@ -4,10 +4,14 @@ const express = require('express')
 const app = express()
 
 // Require API routes
-const users = require('./routes/users')
+const voting = require('./routes/voting')
+
+// config root path
+const path = require('path')
+global.rootPath = path.join(__dirname + '/../')
 
 // Import API Routes
-app.use(users)
+app.use(voting)
 
 // Export the server middleware
 module.exports = {
