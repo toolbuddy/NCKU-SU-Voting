@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <label>成大學生會</label>
+    <h3>成大學生會</h3>
 
-    <svg width="6vw" height="6vw">
-      <rect y="0" width="6vw" height="1vw" fill="#74bfc3"></rect>
-      <rect y="2vw" width="6vw" height="1vw" fill="#74bfc3"></rect>
-      <rect y="4vw" width="6vw" height="1vw" fill="#74bfc3"></rect>
+    <svg width="8vw" height="8vw">
+      <rect y="0" width="6.5vw" height="1.5vw" fill="#74bfc3"></rect>
+      <rect y="2vw" width="6.5vw" height="1.5vw" fill="#74bfc3"></rect>
+      <rect y="4vw" width="6.5vw" height="1.5vw" fill="#74bfc3"></rect>
     </svg>
   </div>
 </template>
@@ -17,6 +17,7 @@ export default {
 </script>
 
 <style scoped>
+
   .container
   {
     display: flex;
@@ -36,8 +37,10 @@ export default {
     margin: 4vw;
   }
 
-  label {
-    font-size: 18px;
+  h3 {
+    font-size: 4.27vw;
     margin-left: 5vw;
+    color: #A2A2A2;
   }
+
 </style>
