@@ -41,7 +41,7 @@ export default {
   components: {
     bighead
   },
-  created () {
+  mounted () {
     let me = this
     window.fbAsyncInit = function () {
       window.FB.init({
