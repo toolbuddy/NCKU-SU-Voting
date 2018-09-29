@@ -28,6 +28,30 @@ export default {
   components: {
     bighead
   },
+  created () {
+    let me = this
+    window.fbAsyncInit = function () {
+      window.FB.init({
+        appId: '249512712375058',
+        cookie: true,
+        xfbml: true,
+        version: 'v3.1'
+      })
+      window.FB.AppEvents.logPageView()
+      // check FB login state
+      window.FB.getLoginStatus(response => {
+        me.statusChange(response)
+      })
+    };
+    (function (d, s, id) {
+      var js
+      var fjs = d.getElementsByTagName(s)[0]
+      if (d.getElementById(id)) { return }
+      js = d.createElement(s); js.id = id
+      js.src = '//connect.facebook.net/zh_TW/sdk.js'
+      fjs.parentNode.insertBefore(js, fjs)
+    }(document, 'script', 'facebook-jssdk'))
+  },
   head () {
     return {
       title: 'Voting'
@@ -42,14 +66,14 @@ export default {
   methods: {
     getProfile () {
       let me = this
-      FB.api('/me?field=name,id,email', function (response) {
+      window.FB.api('/me?field=name,id,email', function (response) {
         console.log('getProfile', response)
         me.$set(me, 'profile', response)
       })
     },
     login () {
       let me = this
-      FB.login(function (response) {
+      window.FB.login(function (response) {
         console.log('login success!')
         me.statusChange(response)
       }, {
@@ -59,7 +83,7 @@ export default {
     },
     logout () {
       let me = this
-      FB.logout(function (response) {
+      window.FB.logout(function (response) {
         console.log('logout!')
         me.statusChange(response)
       })
@@ -76,30 +100,6 @@ export default {
       console.log('profile: ', me.profile)
       console.log('isLogin: ', me.isLogin)
     }
-  },
-  mounted () {
-    let me = this
-    window.fbAsyncInit = function () {
-      FB.init({
-        appId: '249512712375058',
-        cookie: true,
-        xfbml: true,
-        version: 'v3.1'
-      })
-      FB.AppEvents.logPageView()
-      // check FB login status
-      FB.getLoginStatus(response => {
-        me.statusChange(response)
-      })
-    }
-    (function (d, s, id) {
-      var js
-      var fjs = d.getElementsByTagName(s)[0]
-      if (d.getElementById(id)) { return }
-      js = d.createElement(s); js.id = id
-      js.src = '//connect.facebook.net/zh_TW/sdk.js'
-      fjs.parentNode.insertBefore(js, fjs)
-    }(document, 'script', 'facebook-jssdk'))
   }
 }
 </script>
