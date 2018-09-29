@@ -1,0 +1,116 @@
+{
+  "proposal_1": {
+    "title": "台南市長辯論 - 文化提問",
+    "subtitle": "一些副標文字，說明這則新聞內容",
+    "content": "新聞文字內容",
+    "question_1": "候選提問一內容",
+    "question_2": "候選提問二內容",
+    "question_3": "候選提問三內容",
+    "question_add_1": "候選提問一補充說明",
+    "question_add_2": "候選提問二補充說明",
+    "question_add_3": "候選提問三補充說明",
+    "question_add_4": "候選提問四補充說明",
+    "time": "2018-09-13",
+    "author": "陳估熊",
+    "selections" : {
+      "first": "第一個選項說明",
+      "second": "第二個選項說明",
+      "third": "第三個選項說明"
+    }
+  },
+  "proposal_2": {
+    "title": "台南市長辯論 - 文化提問",
+    "subtitle": "一些副標文字，說明這則新聞內容",
+    "content": "新聞文字內容",
+    "question_1": "候選提問一內容",
+    "question_2": "候選提問二內容",
+    "question_3": "候選提問三內容",
+    "question_add_1": "候選提問一補充說明",
+    "question_add_2": "候選提問二補充說明",
+    "question_add_3": "候選提問三補充說明",
+    "question_add_4": "候選提問四補充說明",
+    "time": "2018-09-13",
+    "author": "陳估熊",
+    "selections" : {
+      "first": "第一個選項說明",
+      "second": "第二個選項說明",
+      "third": "第三個選項說明"
+    }
+  },
+  "proposal_3": {
+    "title": "台南市長辯論 - 文化提問",
+    "subtitle": "一些副標文字，說明這則新聞內容",
+    "content": "新聞文字內容",
+    "question_1": "候選提問一內容",
+    "question_2": "候選提問二內容",
+    "question_3": "候選提問三內容",
+    "question_add_1": "候選提問一補充說明",
+    "question_add_2": "候選提問二補充說明",
+    "question_add_3": "候選提問三補充說明",
+    "question_add_4": "候選提問四補充說明",
+    "time": "2018-09-13",
+    "author": "陳估熊",
+    "selections" : {
+      "first": "第一個選項說明",
+      "second": "第二個選項說明",
+      "third": "第三個選項說明"
+    }
+  },
+  "proposal_4": {
+    "title": "台南市長辯論 - 文化提問",
+    "subtitle": "一些副標文字，說明這則新聞內容",
+    "content": "新聞文字內容",
+    "question_1": "候選提問一內容",
+    "question_2": "候選提問二內容",
+    "question_3": "候選提問三內容",
+    "question_add_1": "候選提問一補充說明",
+    "question_add_2": "候選提問二補充說明",
+    "question_add_3": "候選提問三補充說明",
+    "question_add_4": "候選提問四補充說明",
+    "time": "2018-09-13",
+    "author": "陳估熊",
+    "selections" : {
+      "first": "第一個選項說明",
+      "second": "第二個選項說明",
+      "third": "第三個選項說明"
+    }
+  },
+  "proposal_5": {
+    "title": "台南市長辯論 - 文化提問",
+    "subtitle": "一些副標文字，說明這則新聞內容",
+    "content": "新聞文字內容",
+    "question_1": "候選提問一內容",
+    "question_2": "候選提問二內容",
+    "question_3": "候選提問三內容",
+    "question_add_1": "候選提問一補充說明",
+    "question_add_2": "候選提問二補充說明",
+    "question_add_3": "候選提問三補充說明",
+    "question_add_4": "候選提問四補充說明",
+    "time": "2018-09-13",
+    "author": "陳估熊",
+    "selections" : {
+      "first": "第一個選項說明",
+      "second": "第二個選項說明",
+      "third": "第三個選項說明"
+    }
+  },
+  "proposal_6": {
+    "title": "台南市長辯論 - 文化提問",
+    "subtitle": "一些副標文字，說明這則新聞內容",
+    "content": "新聞文字內容",
+    "question_1": "候選提問一內容",
+    "question_2": "候選提問二內容",
+    "question_3": "候選提問三內容",
+    "question_add_1": "候選提問一補充說明",
+    "question_add_2": "候選提問二補充說明",
+    "question_add_3": "候選提問三補充說明",
+    "question_add_4": "候選提問四補充說明",
+    "time": "2018-09-13",
+    "author": "陳估熊",
+    "selections" : {
+      "first": "第一個選項說明",
+      "second": "第二個選項說明",
+      "third": "第三個選項說明"
+    }
+  }
+}

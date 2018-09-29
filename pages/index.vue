@@ -1,12 +1,5 @@
 <template>
   <div>
-
-    <div  class="container">
-      <div  class="_container">
-      <h3>成大學生會</h3>
-      </div>
-      <img class="menuphoto" src="~/assets/img/options.png"> 
-    </div>
     <!--
     temporarily hide the FB login button
     <div  class="container">
@@ -234,15 +227,6 @@ img.homephoto
     top: 20%;
     height: 56%;
     width: auto;
-    display: block;
-    margin: auto;
-  }
-
-  img.menuphoto 
-  {
-    position: fixed;
-    top: 10px;
-    right: 3%;
     display: block;
     margin: auto;
   }
