@@ -4,15 +4,10 @@ module.exports = function(sequelize, DataTypes) {
       type: Sequelize.STRING(20),
       primaryKey: true
     },
-    number: {
+    choice: {
       type: DataTypes.INTEGER,
-      defaultValue: 0
     }
   });
-
-  poll.associate = function(models) {
-    poll.hasMany(models.psChart, {foreignKey: 'pollName'});
-  }
 
   return poll;
 }
