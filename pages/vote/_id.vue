@@ -45,12 +45,15 @@
 import axios from '~/plugins/axios.js'
 
 export default {
-  async asyncData ({ params }) {
+  async asyncData ({ params, error }) {
+    if (parseInt(params.id) < 1 || parseInt(params.id) > 6) {
+      error({ statusCode: 404, message: 'Page not found' })
+    }
     try {
-      const result = await axios.get(`/api/getContent?id=${params.id}`)
+      const result = await axios.get(`/api/getVoteContent?id=${params.id}`)
       return result.data
     } catch (error) {
-      console.log('Get content of article failed!!')
+      console.log('Get vote content failed!!')
       console.log(error)
       return {}
     }

@@ -13,20 +13,27 @@
       </p>
       <p>進入相關文章，票選市長辯論問題：</p>
       <ul>
-        <li v-for="(title, index) in topics" v-bind:key="index" v-text="title"></li>
+        <li v-for="(title, key) in related" v-bind:key="key" v-text="title"></li>
       </ul>
     </section>
   </div>
 </template>
 
 <script>
+import axios from '~/plugins/axios'
+
 export default {
-  data () {
-    return {
-      topics: ['台南市長辯論-文化提問', '台南市長辯論-教育提問', '台南市長辯論-教育提問',
-        '台南市長辯論-教育提問', '台南市長辯論-教育提問', '台南市長辯論-教育提問'],
-      time: '2018.10.10',
-      author: '陳估熊'
+  async asyncData ({ params, error }) {
+    if (parseInt(params.id) !== 1) {
+      error({ statusCode: 404, message: 'Page not found' })
+    }
+    try {
+      const result = await axios.get(`/api/getDetailContent?id=${params.id}`)
+      return result.data
+    } catch (error) {
+      console.log('Get detail content failed!!')
+      console.log(error)
+      return {}
     }
   }
 }

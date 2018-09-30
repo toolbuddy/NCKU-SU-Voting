@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <h3>成大學生會</h3>
-
     <svg width="8vw" height="8vw">
       <rect y="0" width="6.5vw" height="1.5vw" fill="#74bfc3"></rect>
       <rect y="2vw" width="6.5vw" height="1.5vw" fill="#74bfc3"></rect>
@@ -22,7 +21,7 @@ export default {
   {
     display: flex;
     align-items: center;
-    position: absolute;
+    position: fixed;
     height: 14vw;
     width: 100%;
     background-color:rgba(223, 223, 223, 0.151);
