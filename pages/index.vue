@@ -23,8 +23,47 @@
         <h2>一些副標文字，<br>說明這則新聞的內容。</h2>
         </div>
       </div>
-    </router-link>
+    </div>
+    
+    <div class="article_title">
+      <div class="_article_title">
+      <img class="articleicon" src="~/assets/img/articleicon.png">
+      <h4>文章總覽</h4>
+      </div>
+    </div>
+    <div class="article_subtitle">
+      <div class="_article_subtitle">
+    <h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5>
+    </div>
+    <img class="news1" src="~/assets/img/news1.png">
+    <img class="news2" src="~/assets/img/news2.png">
+    <img class="news3" src="~/assets/img/news3.png">
+    </div>
+    <div class="show_more">
+       <div class="_show_more">
+      <h6>顯示更多</h6>
+      </div>
+    </div>
 
+    <div class="graycolor">
+    <div class="_graycolor">
+      <img class="publicstage" src="~/assets/img/publicstage.png">
+      <h4>公共參與平台</h4>
+      </div>
+    </div>
+    <div class="publicstage_subtitle">
+  <div class="_publicstage_subtitle">
+    <h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5>
+    </div>
+    <div class="box1"><h5>文化</h5><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+    <div class="box2"><h5>文化</h5><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+    <div class="box3"><h5>文化</h5><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+    </div>
+        <div class="show_more2">
+       <div class="_show_more2">
+      <p>顯示更多</p>
+      </div>
+    </div>
 
   </div>
 </template>
@@ -92,119 +131,43 @@ export default {
 <style scoped>
 
 h1{
-font-family: ‘segoe ui’, sans-serif;
-font-size: 26px;
+font-size: 6.93vw;
 font-weight: 100px;
 color: white;
 }
 h2{
-font-family: ‘segoe ui’, sans-serif;
-font-size: 18px;
+font-size: 4.8vw;
 font-weight: 100px;
 color: white;
 }
 h3{
-font-family: ‘segoe ui’, sans-serif;
-font-size: 16px;
+font-size: 4.26vw;
 font-weight: 100px;
 color: #A2A2A2;
 }
-
-@media screen and  (orientation:landscape) 
-{
-      
-      img.homephoto 
-      {
-      position: absolute;
-      left: 35%;
-      top: 7%;
-      height: 70%;
-      width: 70%;
-      display: block;
-      margin: auto;
-      }
-      .container
-      {
-        position: absolute;
-        top: 0%;
-        height:20%;
-        width: 100%;
-        background-color:rgba(223, 223, 223, 0.151);
-      }
-      .hometitle 
-      {
-       position: absolute;
-       top: 50%;
-       left: 0%;
-       width: 100%;
-       height:30vh;
-       margin: auto;
-       background-color:rgba(81,81,81,0.48);
-       border:0px;
-       z-index: 0;
-      }
-
-      ._hometitle {
-          position: absolute;
-          top: 5%;
-          left: 10%;
-          height: 10vh;
-          text-align: left;
-      }
-
+h4{
+font-size: 6.93vw;
+font-weight: 100px;
+color:#A2A2A2 ;
+}
+h5{
+font-size: 4.26vw;
+color: #A2A2A2;
+}
+h6{
+font-size: 4.8vw;
+color: #09A6AA;
 }
 
-@media screen and(orientation:landscape) and(max-width: width 1024px)
 
-{
-      img.homephoto 
-      {
-      position: absolute;
-      left: 35%;
-      top: 5%;
-      height: 300px;
-      width: 300px;
-      display: block;
-      margin: auto;
-      }
-      .container
-      {
-        position: absolute;
-        top: 0%;
-        height:40px;
-        width: 100%;
-        background-color:rgba(223, 223, 223, 0.151);
-      }
-      .hometitle 
-      {
-       position: absolute;
-       top: 50%;
-       left: 0%;
-       width: 100%;
-       height:30vh;
-       margin: auto;
-       background-color:rgba(81,81,81,0.48);
-       border:0px;
-       z-index: 0;
-      }
 
-      ._hometitle {
-          position: absolute;
-          top: 5%;
-          left: 10%;
-          height: 10vh;
-          text-align: left;
-      }
 
-     }
-     /* orientation: portrait   直式*/
-     /* orientation: landscape  橫式*/
 
 img.homephoto 
   {
-    position: fixed;
+    position: absolute;
     top: 20%;
-    height: 56%;
+    height: 56vh;
     width: auto;
     display: block;
     margin: auto;
@@ -254,4 +217,211 @@ img.homephoto
 {
   margin: 30px 0;
 }
+
+
+.article_title 
+{
+    position: absolute;
+    top: 115vh;
+    left: 0%;
+    width: 100%;
+    height:10vh;
+}
+._article_title 
+{
+    position: absolute;
+    top: 0vh;
+    left: 19.5vh;
+    height: 10vh;
+    text-align: left;
+}
+
+img.articleicon 
+  {
+    position: absolute;
+    top: -8vh;
+    padding-left:2vh;
+    height: 12.4vh;
+    width: auto;
+    display: block;
+    margin: auto;
+  }
+
+
+.article_subtitle 
+{
+    position: absolute;
+    top: 120vh;
+    left: 0%;
+    width: 100%;
+    height:10vh;
+}
+._article_subtitle 
+{
+    position: absolute;
+    top: 2vh;
+    left: 9vh;
+    height: 10vh;
+    text-align: left;
+}
+
+img.news1
+  {
+    position: absolute;
+    top: 15vh;
+    padding-left:2vh;
+    height: 25vh;
+    width: auto;
+    display: block;
+    margin: auto;
+  }
+  img.news2
+  {
+    position: absolute;
+    top: 41vh;
+    padding-left:2vh;
+    height: 25vh;
+    width: auto;
+    display: block;
+    margin: auto;
+  }
+  img.news3
+  {
+    position: absolute;
+    top: 67vh;
+    padding-left:2vh;
+    height: 25vh;
+    width: auto;
+    display: block;
+    margin: auto;
+  }
+
+  .show_more 
+{
+    position: absolute;
+    top: 210vh;
+    left: 0%;
+    width: 100%;
+    height:10vh;
+}
+._show_more  
+{
+    position: absolute;
+    top: 2vh;
+    left: 22vh;
+    height: 10vh;
+    text-align: left;
+}
+.graycolor 
+{
+    position: absolute;
+    top: 225vh;
+    left: 0vw;
+    height: 140vh;
+    width: 100%;
+    background-color: #F6F6F6;
+}
+._graycolor
+{
+    position: absolute;
+    top: 20vh;
+    left: 29vw;
+    height: 10vh;
+    text-align: left;
+}
+
+img.publicstage
+  {
+    position: absolute;
+    top: -8vh;
+    padding-left:5vh;
+    height: 12.4vh;
+    width: auto;
+    display: block;
+    margin: auto;
+  }
+
+  .publicstage_subtitle 
+{
+    position: absolute;
+    top: 250vh;
+    left: 0%;
+    width: 100%;
+    height:10vh;
+}
+._publicstage_subtitle 
+{
+    position: absolute;
+    top: 2vh;
+    left: 8vh;
+    height: 10vh;
+    text-align: left;
+}
+
+  .box1
+  {
+    position: absolute;
+    top: 17vh;
+    left:5vw;
+    height: 25vh;
+    width: 90vw;
+    display: block;
+    margin: auto;
+    background-color: #FFFFFF;
+    z-index:2;
+    box-shadow: 0px 3px 6px #CDCDCD;
+    border-radius: 8px;
+    text-align: center;
+    padding:0vw;
+  }
+    .box2
+  {
+    position: absolute;
+    top: 44vh;
+    left:5vw;
+    height: 25vh;
+    width: 90vw;
+    display: block;
+    margin: auto;
+    background-color: #FFFFFF;
+    z-index:2;
+    box-shadow: 0px 3px 6px #CDCDCD;
+    border-radius: 8px;
+    text-align: center;
+    padding:0vw;
+  }
+    .box3
+  {
+    position: absolute;
+    top: 71vh;
+    left:5vw;
+    height: 25vh;
+    width: 90vw;
+    display: block;
+    margin: auto;
+    background-color: #FFFFFF;
+    z-index:2;
+    box-shadow: 0px 3px 6px #CDCDCD;
+    border-radius: 8px;
+    text-align: center;
+    padding:0vw;
+  }
+  .show_more2 
+{
+    position: absolute;
+    top: 345vh;
+    left: 0%;
+    width: 100%;
+    height:10vh;
+}
+._show_more2
+{
+    position: absolute;
+    top: 2vh;
+    left: 23vh;
+    height: 10vh;
+    text-align: left;
+}
+
+
 </style>
