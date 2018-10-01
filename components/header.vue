@@ -14,7 +14,7 @@
       <router-link to="#" tag="button"> 公共參與平台 </router-link>
       <router-link to="#" tag="button"> 關於學生會 </router-link>
       <router-link to="#" tag="button"> 聯絡我們 </router-link>
-      <router-link to="#" tag="button"> 使用 facebook 登入 </router-link>
+      <router-link to="/account/login" tag="button"> 使用 facebook 登入 </router-link>
     </section>
   </div>
 
@@ -42,7 +42,7 @@ export default {
       }
       this.lastScrollY = window.scrollY
     }
-    window.addEventListener('scroll', handleScroll.bind(this), true)
+    window.addEventListener('scroll', handleScroll.bind(this), false)
     // add click/touch event to open the select column
     this.buttonElement = this.$el.querySelector('.container').childNodes[1]
     this.buttonElement.addEventListener('click', this.handleClickTouch.bind(this))
@@ -57,7 +57,7 @@ export default {
       }
       this.buttonElement.removeEventListener('click', this.handleClickTouch)
       this.buttonElement.removeEventListener('touchstart', this.handleClickTouch)
-      window.addEventListener('click', this.handleHide.bind(this), true)
+      window.addEventListener('click', this.handleHide.bind(this), false)
     },
     handleHide: function (event) {
       event.stopPropagation()
@@ -65,8 +65,8 @@ export default {
       if (event.target.nodeName !== '<button>' && this.display) {
         this.display = false
       }
-      this.buttonElement.addEventListener('click', this.handleClickTouch.bind(this), true)
-      this.buttonElement.addEventListener('touchstart', this.handleClickTouch.bind(this), true)
+      this.buttonElement.addEventListener('click', this.handleClickTouch.bind(this), false)
+      this.buttonElement.addEventListener('touchstart', this.handleClickTouch.bind(this), false)
       window.removeEventListener('click', this.handleHide.bind(this))
     }
   }

@@ -86,6 +86,10 @@ ul {
   font-size: 3.74vw
 }
 
+ul li {
+  cursor: pointer;
+}
+
 
 
 .center {
