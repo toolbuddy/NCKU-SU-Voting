@@ -69,7 +69,7 @@ img {
 }
 section {
   box-sizing: border-box;
-  padding: 18px 9.5%;
+  padding: 4.8vw 9.5%;
 }
 
 section:last-child {
@@ -79,37 +79,37 @@ section:last-child {
 
 h1 {
   color: #707070;
-  font-size: 26px;
+  font-size: 6.94vw;
 }
 
 h2 {
   color: #707070;
-  font-size: 20px;
+  font-size: 5.34vw;
 }
 
 article {
   color: #707070;
-  font-size: 14px;
+  font-size: 3.74vw;
 }
 
 section section label {
   color: #707070;
-  font-size: 14px;
+  font-size: 3.74vw;
 }
 
 .gray-background label {
   color: #707070;
-  font-size: 14px;
+  font-size: 3.74vw;
 }
 
 section:not(.gray-background) label {
   color: #b8b8b8;
-  font-size: 12px;
+  font-size: 3.2vw;
 }
 
 label > time {
   color: #b8b8b8;
-  font-size: 12px;
+  font-size: 3.2vw;
 }
 
 .gray-background {
