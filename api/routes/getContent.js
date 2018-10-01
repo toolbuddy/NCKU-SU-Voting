@@ -7,9 +7,6 @@ const voteData = require('../../model/voteData.json')
 const detailData = require('../../model/detailData.json')
 
 router.get('/getAllVote', urlencodedParser, (req, res) => {
-  console.log(Object.keys(voteData).map(target => {
-    return voteData[target].title
-  }))
   res.status(200)
   res.json(Object.keys(voteData).map(target => {
     return voteData[target].title

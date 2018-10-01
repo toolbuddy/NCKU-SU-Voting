@@ -15,6 +15,7 @@
       <router-link to="#" tag="button"> 關於學生會 </router-link>
       <router-link to="#" tag="button"> 聯絡我們 </router-link>
       <router-link to="/account/login" tag="button"> 使用 facebook 登入 </router-link>
+
     </section>
   </div>
 
@@ -78,6 +79,7 @@ export default {
     position: fixed;
     width: 100%;
     height: 0;
+    top: 0;
     z-index: 997;
   }
 

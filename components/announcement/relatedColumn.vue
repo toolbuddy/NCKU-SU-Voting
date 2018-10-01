@@ -3,7 +3,7 @@
     <img v-bind:src="url"/>
     <section>
       <h1> {{title}} </h1>
-      <h3> {{subtitle}} </h3  >
+      <h3> {{subtitle}} </h3>
     </section>
   </div>
 </template>
