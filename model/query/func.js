@@ -22,7 +22,7 @@ function select(name, choice) {
   })
 }
 /* example
-select('aaaaa', 7)
+select('xxxaga', 1)
 .then( res => {
   console.log(res)
 })
@@ -55,4 +55,25 @@ sum(1)
 .catch( err => {
   console.log(err)
 });
+*/
+
+function rate(id) {
+  if (id<0 || id>=18) {
+    return new Promise( (resolve, reject) => { reject("invalid id")});
+  }
+
+  let s = sum(id)
+	let a = poll.count()
+
+	return new Promise( (resolve, reject) => {
+		Promise.all([s, a])
+		.then( x => {
+			resolve(x[0]/x[1])
+		})
+	})
+}
+
+/* example
+rate(1)
+.then( res => { console.log(res)})
 */
