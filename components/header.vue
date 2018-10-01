@@ -42,7 +42,7 @@ export default {
       }
       this.lastScrollY = window.scrollY
     }
-    window.addEventListener('scroll', handleScroll.bind(this), false)
+    window.addEventListener('scroll', handleScroll.bind(this), true)
     // add click/touch event to open the select column
     this.buttonElement = this.$el.querySelector('.container').childNodes[1]
     this.buttonElement.addEventListener('click', this.handleClickTouch.bind(this))
@@ -57,7 +57,7 @@ export default {
       }
       this.buttonElement.removeEventListener('click', this.handleClickTouch)
       this.buttonElement.removeEventListener('touchstart', this.handleClickTouch)
-      window.addEventListener('click', this.handleHide.bind(this), false)
+      window.addEventListener('click', this.handleHide.bind(this), true)
     },
     handleHide: function (event) {
       event.stopPropagation()
@@ -65,8 +65,8 @@ export default {
       if (event.target.nodeName !== '<button>' && this.display) {
         this.display = false
       }
-      this.buttonElement.addEventListener('click', this.handleClickTouch.bind(this))
-      this.buttonElement.addEventListener('touchstart', this.handleClickTouch)
+      this.buttonElement.addEventListener('click', this.handleClickTouch.bind(this), true)
+      this.buttonElement.addEventListener('touchstart', this.handleClickTouch.bind(this), true)
       window.removeEventListener('click', this.handleHide.bind(this))
     }
   }
@@ -77,7 +77,7 @@ export default {
   div {
     position: fixed;
     width: 100%;
-    height: 100%;
+    height: 0;
     z-index: 997;
   }
 
@@ -118,10 +118,10 @@ export default {
   }
 
   .select-column {
-    transform-origin: top;
-    transform: translateY(-120vw);
     transition: .4s ease-in-out;
+    opacity: 0;
     z-index: 998;
+    visibility: hidden;
   }
 
   .select-column button {
@@ -137,6 +137,7 @@ export default {
   }
 
   .show {
-    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
   }
 </style>

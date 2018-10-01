@@ -14,7 +14,7 @@
         </p>
         <p>進入相關文章，票選市長辯論問題：</p>
         <ul>
-          <li v-for="(title, key) in related" v-bind:key="key" v-text="title"></li>
+          <router-link v-for="(title, key, index) in related" v-bind:key="key" v-text="title" tag="li" v-bind:to="{path: '/vote/' + (index + 1) }"></router-link>
         </ul>
       </section>
     </section>
