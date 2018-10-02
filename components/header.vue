@@ -14,7 +14,7 @@
       <router-link to="#" tag="button"> 公共參與平台 </router-link>
       <router-link to="#" tag="button"> 關於學生會 </router-link>
       <router-link to="#" tag="button"> 聯絡我們 </router-link>
-      <router-link to="#" tag="button"> 使用 facebook 登入 </router-link>
+      <router-link to="/account/login" tag="button"> 使用 facebook 登入 </router-link>
     </section>
   </div>
 
@@ -65,8 +65,8 @@ export default {
       if (event.target.nodeName !== '<button>' && this.display) {
         this.display = false
       }
-      this.buttonElement.addEventListener('click', this.handleClickTouch.bind(this))
-      this.buttonElement.addEventListener('touchstart', this.handleClickTouch)
+      this.buttonElement.addEventListener('click', this.handleClickTouch.bind(this), false)
+      this.buttonElement.addEventListener('touchstart', this.handleClickTouch.bind(this), false)
       window.removeEventListener('click', this.handleHide.bind(this))
     }
   }
@@ -77,7 +77,7 @@ export default {
   div {
     position: fixed;
     width: 100%;
-    height: 100%;
+    height: 0;
     z-index: 997;
   }
 
@@ -118,10 +118,10 @@ export default {
   }
 
   .select-column {
-    transform-origin: top;
-    transform: translateY(-120vw);
     transition: .4s ease-in-out;
+    opacity: 0;
     z-index: 998;
+    visibility: hidden;
   }
 
   .select-column button {
@@ -137,6 +137,7 @@ export default {
   }
 
   .show {
-    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
   }
 </style>

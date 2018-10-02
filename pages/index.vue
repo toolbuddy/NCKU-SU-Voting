@@ -13,12 +13,15 @@
     </div>
     -->
 
-    <img class="homephoto" src="~/assets/img/home.png">
-
-    <div class="hometitle">
-      <div class="_hometitle">
-      <h1>WHY辯論會？</h1>
-      <h2>一些副標文字，<br>說明這則新聞的內容。</h2>
+    <router-link v-bind:to="{path: '/detail/1'}" >
+      <img class="homephoto" src="~/assets/img/home.png"/>
+    </router-link>
+    <router-link v-bind:to="{path: '/detail/1'}" >
+      <div class="hometitle">
+        <div class="_hometitle">
+        <h1>WHY辯論會？</h1>
+        <h2>一些副標文字，<br>說明這則新聞的內容。</h2>
+        </div>
       </div>
     </div>
     
@@ -99,30 +102,6 @@ export default {
   name: 'Login',
   components: {
     bighead
-  },
-  mounted () {
-    let me = this
-    window.fbAsyncInit = function () {
-      window.FB.init({
-        appId: '249512712375058',
-        cookie: true,
-        xfbml: true,
-        version: 'v3.1'
-      })
-      window.FB.AppEvents.logPageView()
-      // check FB login state
-      window.FB.getLoginStatus(response => {
-        me.statusChange(response)
-      })
-    };
-    (function (d, s, id) {
-      var js
-      var fjs = d.getElementsByTagName(s)[0]
-      if (d.getElementById(id)) { return }
-      js = d.createElement(s); js.id = id
-      js.src = '//connect.facebook.net/zh_TW/sdk.js'
-      fjs.parentNode.insertBefore(js, fjs)
-    }(document, 'script', 'facebook-jssdk'))
   },
   head () {
     return {
