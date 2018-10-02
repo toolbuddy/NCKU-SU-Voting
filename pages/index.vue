@@ -25,7 +25,7 @@
     <div class="article_title">
       <div class="_article_title">
       <img class="articleicon" src="~/assets/img/articleicon.png">
-      <h4>文章總覽</h4>
+      <h3>文章總覽</h3>
       </div>
     </div>
     <div class="article_subtitle">
@@ -45,24 +45,51 @@
     <div class="graycolor">
     <div class="_graycolor">
       <img class="publicstage" src="~/assets/img/publicstage.png">
-      <h4>公共參與平台</h4>
+      <h3>公共參與平台</h3>
       </div>
-    </div>
+      </div>
     <div class="publicstage_subtitle">
   <div class="_publicstage_subtitle">
     <h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5>
     </div>
-    <div class="box1"><h5>文化</h5><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-    <div class="box2"><h5>文化</h5><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-    <div class="box3"><h5>文化</h5><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+    <div class="box1"><h4>文化</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+    <div class="box2"><h4>教育</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+    <div class="box3"><h4>轉型正義</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
     </div>
-        <div class="show_more2">
+      <div class="show_more2">
        <div class="_show_more2">
-      <p>顯示更多</p>
+      <h6>顯示更多</h6>
       </div>
+      </div>
+      
+
+
+    <div class="graycolor2">
+    <div class="_graycolor2">
+      <h3>關於學生會</h3>
+      </div>
+      </div>
+    <div class="aboutsu_subtitle">
+  <div class="_aboutsu_subtitle">
+    <h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5>
+    </div>
+    <div class="box1"><h4>組織架構</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+    <div class="box2"><h4>學生會史</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+    <div class="box3"><h4>組織章程</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+    <div class="box4"><h4>法規彙編</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+    <div class="box5"><h4>會長的話</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+    </div>
+      <div class="show_more3">
+       <div class="_show_more3">
+      <h6>顯示更多</h6>
+      </div>
+      </div>
+
+ 
+
+    
     </div>
 
-  </div>
 </template>
 
 <script>
@@ -162,15 +189,17 @@ font-weight: 100px;
 color: white;
 }
 h3{
-font-size: 4.26vw;
-font-weight: 100px;
-color: #A2A2A2;
-}
-h4{
 font-size: 6.93vw;
 font-weight: 100px;
 color:#A2A2A2 ;
 }
+h4{
+color:#A2A2A2 ;
+padding-left: 10vw;
+font-size: 5.33vw;
+text-align: left;
+}
+
 h5{
 font-size: 4.26vw;
 color: #A2A2A2;
@@ -427,6 +456,38 @@ img.publicstage
     text-align: center;
     padding:0vw;
   }
+     .box4
+  {
+    position: absolute;
+    top: 98vh;
+    left:5vw;
+    height: 25vh;
+    width: 90vw;
+    display: block;
+    margin: auto;
+    background-color: #FFFFFF;
+    z-index:2;
+    box-shadow: 0px 3px 6px #CDCDCD;
+    border-radius: 8px;
+    text-align: center;
+    padding:0vw;
+  }
+     .box5
+  {
+    position: absolute;
+    top: 125vh;
+    left:5vw;
+    height: 25vh;
+    width: 90vw;
+    display: block;
+    margin: auto;
+    background-color: #FFFFFF;
+    z-index:2;
+    box-shadow: 0px 3px 6px #CDCDCD;
+    border-radius: 8px;
+    text-align: center;
+    padding:0vw;
+  }
   .show_more2 
 {
     position: absolute;
@@ -444,5 +505,57 @@ img.publicstage
     text-align: left;
 }
 
+
+.graycolor2
+{
+    position: absolute;
+    top: 400vh;
+    left: 0vw;
+    height: 180vh;
+    width: 100%;
+    background-color: #F6F6F6;
+}
+._graycolor2
+{
+    position: absolute;
+    top: 5vh;
+    left: 31vw;
+    height: 10vh;
+    text-align: left;
+}
+
+ .aboutsu_subtitle 
+{
+    position: absolute;
+    top: 415vh;
+    left: 0%;
+    width: 100%;
+    height:10vh;
+}
+._aboutsu_subtitle 
+{
+    position: absolute;
+    top: 2vh;
+    left: 8vh;
+    height: 10vh;
+    text-align: left;
+}
+
+  .show_more3
+{
+    position: absolute;
+    top: 500vh;
+    left: 0%;
+    width: 100%;
+    height:10vh;
+}
+._show_more3
+{
+    position: absolute;
+    top: 2vh;
+    left: 23vh;
+    height: 10vh;
+    text-align: left;
+}
 
 </style>
