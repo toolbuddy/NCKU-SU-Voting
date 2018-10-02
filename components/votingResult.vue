@@ -72,7 +72,9 @@ export default {
 <style scoped>
 body {
   color: #707070;
-  font-size: 14px;
+  font-size: 3.73vw;
+  letter-spacing: 13.33vw;
+  line-height: 6.93vw;
 }
 
 input[type="radio"] {
@@ -81,33 +83,37 @@ input[type="radio"] {
 
 input[type="radio"] + label:before {
   content: "\f00c";
-  border: 0.4vw solid #707070;
+  border: 0.27vw solid #CDCDCD;
   display: inline-block;
-  width: 3.5vw;
-  height: 3.5vw;
+  width: 5.33vw;
+  height: 5.33vw;
   vertical-align: bottom;
   color: #fff;
   cursor: pointer;
 }
 
 input[type="radio"]:checked + label:before {
-  background-color: #69c3c5;
-  border-color: #69c3c5;
+  background-color: #60c3c5;
+  border-color: #60c3c5;
 }
 
 .container{
   display: grid;
-  grid-template-rows: 10% repeat(3, 1fr);
-  grid-template-columns: 10% 90%;
+  grid-template-rows: 12.8vw repeat(3, 1fr);
+  grid-template-columns: 7.2vw auto;
   grid-template-areas:
     "title title"
     "btn-1 op-1"
     "btn-2 op-2"
     "btn-3 op-3";
-  border: 0.5vw solid #69c3c5;
-  border-radius: 4vw;
-  padding: 3vw;
-  grid-row-gap: 2vw;
+  border: 0.27vw solid #60c3c5;
+  border-radius: 4.27vw;
+  background: #f5f5f5;
+  padding-left: 5.07vw;
+  padding-right: 3.2vw;
+  padding-top: 4.27vw;
+  padding-bottom: 5.33vw;
+  grid-row-gap: 4.53vw;
 }
 
 .title{
@@ -149,23 +155,21 @@ input[type="radio"]:checked + label:before {
 #bar-1, #bar-2, #bar-3 {
   display: none;
   float: left;
-  width: 20%;
-  background: #707070;
+  background: #A0A0A0;
   max-width: 100%;
-  height: 2vw;
-  margin-top: 2vw;
+  height: 2.67vw;
 }
 
 #percent-1, #percent-2, #percent-3 {
   display: none;
-  font-size: 1.5vw;
+  font-size: 2.67vw;
 }
 
 .votedBar {
-  background: #69c3c5;
+  background: #60c3c5;
 }
 
 .votedNum {
-  color: #69c3c5;
+  color: #60c3c5;
 }
 </style>
