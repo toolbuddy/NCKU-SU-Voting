@@ -12,10 +12,7 @@
           <label> 發布時間 | </label> <label> {{time}} </label>  <br>
           <label> 發布者 | {{author}} </label> 
         </p>
-        <p>進入相關文章，票選市長辯論問題：</p>
-        <ul>
-          <router-link v-for="(title, key, index) in related" v-bind:key="key" v-text="title" tag="li" v-bind:to="{path: '/vote/' + (index + 1) }"></router-link>
-        </ul>
+        <related-section v-bind:related="related" title="進入相關文章，票選市長辯論問題："></related-section>
       </section>
     </section>
     <related-column url="/related_1.jpg" title="頭條新聞 2 " subtitle="一些副標文字，說明這則新聞的內容"></related-column>
@@ -27,10 +24,12 @@
 <script>
 import axios from '~/plugins/axios'
 import RelatedColumn from '~/components/announcement/relatedColumn.vue'
+import RelatedSection from '~/components/announcement/relatedSection.vue'
 
 export default {
   components: {
-    RelatedColumn
+    RelatedColumn,
+    RelatedSection
   },
   async asyncData ({ params, error }) {
     if (parseInt(params.id) !== 1) {

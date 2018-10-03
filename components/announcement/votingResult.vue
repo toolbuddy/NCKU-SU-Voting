@@ -6,7 +6,7 @@
     <input type="radio" id ="op1" name="Option"  v-on:click="showPercent"/>
     <label class="button-1" for="op1"></label>
     <section class="content-1">
-      <label class="option-1" for="op1">第一個：五六七八九十一二三四五六七八九十一二三四五六七八九十。{{option1}}</label>
+      <label class="option-1" for="op1">{{option1}}</label>
       <div v-bind:class="{ votedBar: isVoted }" v-bind:style="{ width: percent_1 + '%' }" v-show="isVoted" type="progress-bar" id="bar-1"></div>
       <label v-bind:class="{ votedNum: isVoted }"  v-show="isVoted" id="percent-1">{{percent_1}}</label>
     </section>
@@ -14,7 +14,7 @@
     <input type="radio" id ="op2" name="Option"  v-on:click="showPercent"/>
     <label class="button-2" for="op2"></label> 
     <section class="content-2">
-      <label class="option-2" for="op2">第二個：五六七八九十一二三四五六七八九十一二三四五六七八九十。{{option2}}</label>
+      <label class="option-2" for="op2">{{option2}}</label>
       <div v-bind:class="{ votedBar: isVoted }" v-bind:style="{ width: percent_2 + '%' }" v-show="isVoted" type="progress-bar" id="bar-2"></div>
       <label v-bind:class="{ votedNum: isVoted }" v-show="isVoted" id="percent-2">{{percent_2}}</label>
     </section>
@@ -22,7 +22,7 @@
     <input type="radio" id ="op3" name="Option"  v-on:click="showPercent"/>
     <label class="button-3" for="op3"></label> 
     <section class="content-3">
-      <label class="option-3" for="op3">第三個：五六七八九十一二三四五六七八九十一二三四五六七八九十。{{option3}}</label>
+      <label class="option-3" for="op3">{{option3}}</label>
       <div v-bind:class="{ votedBar: isVoted }" v-bind:style="{ width: percent_3 + '%' }" v-show="isVoted" type="progress-bar" id="bar-3"></div>
       <label v-bind:class="{ votedNum: isVoted }" v-show="isVoted" id="percent-3">{{percent_3}}</label>
     </section>
@@ -73,8 +73,9 @@ input[type="radio"] + label:before {
   display: inline-block;
   width: 5.33vw;
   height: 5.33vw;
-  background-color: #fff;
-  color: #fff;
+  font-size: 5vw;
+  background-color: #f5f5f5;
+  color: #f5f5f5;
   cursor: pointer;
 }
 
