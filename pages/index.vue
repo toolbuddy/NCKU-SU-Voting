@@ -66,27 +66,7 @@
       </div>
     </div>
 
-    <div class="graycolor2">
-      <div class="_graycolor2">
-        <h3>關於學生會</h3>
-      </div>
-    </div>
     
-    <div class="aboutsu_subtitle">
-      <div class="_aboutsu_subtitle">
-        <h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5>
-      </div>
-      <div class="box1"><h4>組織架構</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-      <div class="box2"><h4>學生會史</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-      <div class="box3"><h4>組織章程</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-      <div class="box4"><h4>法規彙編</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-      <div class="box5"><h4>會長的話</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-    </div>
-    <div class="show_more3">
-      <div class="_show_more3">
-        <h6>顯示更多</h6>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -206,19 +186,19 @@ h6 {
 
 img.homephoto {
   position: absolute;
-  top: 20%;
-  height: 56vh;
-  width: auto;
+  top: 34vw;
+  width: 99vw;
+  height: 99vw;
   display: block;
   margin: auto;
 }
 
 .hometitle {
   position: absolute;
-  top: 64.3%;
+  top: 114.8vw;
   left: 0%;
-  width: 100%;
-  height:23vh;
+  width: 100vw;
+  height:41vw;
   margin: auto;
   background-color:rgba(81,81,81,0.48);
   border:0px;
@@ -227,26 +207,10 @@ img.homephoto {
 
 ._hometitle {
   position: absolute;
-  top: 10%;
-  left: 10%;
-  height: 10vh;
+  top: 3vw;
+  left: 11vw;
+  height: 10vw;
   text-align: left;
-}
-
-.container {
-  position: absolute;
-  top: 0%;
-  height:6.1%;
-  width: 100%;
-  background-color:rgba(223, 223, 223, 0.151);
-}
-
-._container {
-  position: fixed;
-  top: 0px;
-  left: 3%;
-  display: block;
-  margin: auto;
 }
 
 .title {
@@ -255,51 +219,52 @@ img.homephoto {
 
 .article_title {
   position: absolute;
-  top: 115vh;
-  left: 0%;
+  top: 205vw;
+  left: 0vw;
   width: 100%;
-  height:10vh;
+  height:auto;
+  z-index:2;
 }
 
 ._article_title {
   position: absolute;
-  top: 0vh;
-  left: 19.5vh;
-  height: 10vh;
+  top: 0vw;
+  left: 34.8vw;
+  height: auto;
   text-align: left;
 }
 
 img.articleicon {
   position: absolute;
-  top: -8vh;
-  padding-left:2vh;
-  height: 12.4vh;
+  top: -14.3vw;
+  padding-left:3.57vw;
+  height: 22.14vw;
   width: auto;
   display: block;
-  margin: auto;
 }
 
 .article_subtitle {
   position: absolute;
-  top: 120vh;
-  left: 0%;
-  width: 100%;
-  height:10vh;
+  top: 242vw;
+  left: 0vw;
+  width: 100vw;
+  height:auto;
 }
 
 ._article_subtitle {
   position: absolute;
-  top: 2vh;
-  left: 9vh;
-  height: 10vh;
+  top: -25vw;
+  left: 14.29vw;
+  height: auto;
   text-align: left;
+  z-index: 2;
 }
 
 img.news1 {
   position: absolute;
-  top: 15vh;
-  padding-left:2vh;
-  height: 25vh;
+  top: 26.78vw;
+  padding-left:3.57vw;
+  height: 44.64vw;
   width: auto;
   display: block;
   margin: auto;
@@ -307,9 +272,9 @@ img.news1 {
 
 img.news2 {
   position: absolute;
-  top: 41vh;
-  padding-left:2vh;
-  height: 25vh;
+  top: 73.21vw;
+  padding-left:3.57vw;
+  height: 44.64vw;
   width: auto;
   display: block;
   margin: auto;
@@ -317,9 +282,9 @@ img.news2 {
 
 img.news3 {
   position: absolute;
-  top: 67vh;
-  padding-left:2vh;
-  height: 25vh;
+  top: 119.64vw;
+  padding-left:3.57vw;
+  height: 44.64vw;
   width: auto;
   display: block;
   margin: auto;
@@ -327,68 +292,66 @@ img.news3 {
 
 .show_more {
   position: absolute;
-  top: 210vh;
-  left: 0%;
-  width: 100%;
-  height:10vh;
+  top: 375vw;
+  left: 0vw;
+  width: 100vw;
+  height:auto;
 }
 
 ._show_more {
   position: absolute;
-  top: 2vh;
-  left: 22vh;
-  height: 10vh;
+  top: 3.57vw;
+  left: 39.28vw;
+  height: 17.86vw;
   text-align: left;
 }
 
 .graycolor {
   position: absolute;
-  top: 225vh;
+  top: 400vw;
   left: 0vw;
-  height: 140vh;
-  width: 100%;
+  height: 250vw;
+  width: 100vw;
   background-color: #F6F6F6;
 }
 
 ._graycolor {
   position: absolute;
-  top: 20vh;
+  top: 35.71vw;
   left: 29vw;
-  height: 10vh;
+  height: auto;
   text-align: left;
 }
 
 img.publicstage {
   position: absolute;
-  top: -8vh;
-  padding-left:5vh;
-  height: 12.4vh;
-  width: auto;
+  top: -14.4vw;
+  padding-left:12vw;
   display: block;
   margin: auto;
 }
 
 .publicstage_subtitle {
   position: absolute;
-  top: 250vh;
-  left: 0%;
-  width: 100%;
-  height:10vh;
+  top: 445vw;
+  left: 0vw;
+  width: 100vw;
+  height:auto;
 }
 
 ._publicstage_subtitle {
   position: absolute;
-  top: 2vh;
-  left: 8vh;
-  height: 10vh;
+  top: 3.57vw;
+  left: 14.3vw;
   text-align: left;
+  z-index: 2;
 }
 
 .box1 {
   position: absolute;
-  top: 17vh;
+  top: 30.36vw;
   left:5vw;
-  height: 25vh;
+  height: 44.64vw;
   width: 90vw;
   display: block;
   margin: auto;
@@ -402,9 +365,9 @@ img.publicstage {
 
 .box2 {
   position: absolute;
-  top: 44vh;
+  top: 78.57vw;
   left:5vw;
-  height: 25vh;
+  height: 44.64vw;
   width: 90vw;
   display: block;
   margin: auto;
@@ -418,9 +381,9 @@ img.publicstage {
 
 .box3 {
   position: absolute;
-  top: 71vh;
+  top: 126.79vw;
   left:5vw;
-  height: 25vh;
+  height: 44.64vw;
   width: 90vw;
   display: block;
   margin: auto;
@@ -432,102 +395,36 @@ img.publicstage {
   padding:0vw;
 }
 
-.box4{
-  position: absolute;
-  top: 98vh;
-  left:5vw;
-  height: 25vh;
-  width: 90vw;
-  display: block;
-  margin: auto;
-  background-color: #FFFFFF;
-  z-index:2;
-  box-shadow: 0px 3px 6px #CDCDCD;
-  border-radius: 8px;
-  text-align: center;
-  padding:0vw;
-}
 
-.box5
-{
-  position: absolute;
-  top: 125vh;
-  left:5vw;
-  height: 25vh;
-  width: 90vw;
-  display: block;
-  margin: auto;
-  background-color: #FFFFFF;
-  z-index:2;
-  box-shadow: 0px 3px 6px #CDCDCD;
-  border-radius: 8px;
-  text-align: center;
-  padding:0vw;
-}
 
 .show_more2 {
   position: absolute;
-  top: 345vh;
-  left: 0%;
-  width: 100%;
-  height:10vh;
+  top: 616vw;
+  left: 0vw;
+  width: 100vw;
 }
 
 ._show_more2 {
   position: absolute;
-  top: 2vh;
-  left: 23vh;
-  height: 10vh;
+  top: 3.57vw;
+  left: 39.29vw;
   text-align: left;
 }
 
 .graycolor2 {
   position: absolute;
-  top: 400vh;
+  top: 714.29vw;
   left: 0vw;
-  height: 180vh;
-  width: 100%;
+  height: 321.43vw;
+  width: 100vw;
   background-color: #F6F6F6;
 }
 
 ._graycolor2 {
   position: absolute;
-  top: 5vh;
+  top: 8.93vw;
   left: 31vw;
-  height: 10vh;
+  height: 17.86vw;
   text-align: left;
 }
-
-.aboutsu_subtitle {
-  position: absolute;
-  top: 415vh;
-  left: 0%;
-  width: 100%;
-  height:10vh;
-}
-
-._aboutsu_subtitle {
-  position: absolute;
-  top: 2vh;
-  left: 8vh;
-  height: 10vh;
-  text-align: left;
-}
-
-.show_more3 {
-  position: absolute;
-  top: 500vh;
-  left: 0%;
-  width: 100%;
-  height:10vh;
-}
-
-._show_more3 {
-  position: absolute;
-  top: 2vh;
-  left: 23vh;
-  height: 10vh;
-  text-align: left;
-}
-
 </style>
