@@ -58,7 +58,7 @@ sum(1)
 */
 
 function rate(id) {
-  if (id<0 || id>=18) {
+  if (id<0 || id>18) {
     return new Promise( (resolve, reject) => { reject("invalid id")});
   }
 

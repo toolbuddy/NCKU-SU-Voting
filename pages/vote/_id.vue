@@ -37,7 +37,7 @@
       <br>
       <label>發布者：{{author}}</label>
     </section>
-
+    
   </div>
 </template>
 
