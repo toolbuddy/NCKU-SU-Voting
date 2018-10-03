@@ -34,7 +34,7 @@
 import axios from '~/plugins/axios'
 
 export default {
-  props: ['option1','option2','option3'],
+  props: ['option1', 'option2', 'option3'],
   data () {
     return {
       isVoted: false,
@@ -43,25 +43,23 @@ export default {
       percent_3: 0
     }
   },
-  async asyncData(){
-    try{
+  async asyncData () {
+    try {
       const result = await axios.get('/api/')
       // TODO: get result.data
-    }
-    catch(error){
-      consule.log(error)
+    } catch (error) {
+      console.log(error)
     }
   },
-  async methods: {
-    showPercent () {
-      if(!isVoted){
+  methods: {
+    async showPercent () {
+      if (!this.isVoted) {
         this.isVoted = true
-        try{
+        try {
           const result = await axios.get('/api/')
           // TODO: get result.data, and recompute the voting percent
-        }
-        catch(error){
-          consule.log(error)
+        } catch (error) {
+          console.log(error)
         }
       }
     }
@@ -70,24 +68,18 @@ export default {
 </script>
 
 <style scoped>
-body {
-  color: #707070;
-  font-size: 3.73vw;
-  letter-spacing: 13.33vw;
-  line-height: 6.93vw;
-}
-
 input[type="radio"] {
   display: none;
 }
 
 input[type="radio"] + label:before {
+  font-family: 'FontAwesome';
   content: "\f00c";
   border: 0.27vw solid #CDCDCD;
   display: inline-block;
   width: 5.33vw;
   height: 5.33vw;
-  vertical-align: bottom;
+  vertical-align: middle;
   color: #fff;
   cursor: pointer;
 }
@@ -99,7 +91,7 @@ input[type="radio"]:checked + label:before {
 
 .container{
   display: grid;
-  grid-template-rows: 12.8vw repeat(3, 1fr);
+  grid-template-rows: 6.4vw repeat(3, 1fr);
   grid-template-columns: 7.2vw auto;
   grid-template-areas:
     "title title"
@@ -118,6 +110,8 @@ input[type="radio"]:checked + label:before {
 
 .title{
   grid-area: title;
+  color: #707070;
+  font-size: 3.73vw;
 }
 
 .button-1{
@@ -150,6 +144,8 @@ input[type="radio"]:checked + label:before {
 
 .content-1, .content-2, .content-3 {
   display: inline-block;
+  color: #707070;
+  font-size: 3.73vw;
 }
 
 #bar-1, #bar-2, #bar-3 {
