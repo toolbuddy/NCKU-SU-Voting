@@ -1,36 +1,36 @@
 <template>
 <form>
   <div class="container">
-    <div class="title">目前投票結果：</div>
+    <div class="title" v-show="!isVoted" >關於文化身為學生，我最想知道：</div>
+    <div class="title" v-show="isVoted" >目前投票結果：</div>
     <input type="radio" id ="op1" name="Option"  v-on:click="showPercent"/>
     <label class="button-1" for="op1"></label>
     <section class="content-1">
-      <label class="option-1" for="op1">{{option1}}</label>
+      <label class="option-1" for="op1">第一個：五六七八九十一二三四五六七八九十一二三四五六七八九十。{{option1}}</label>
       <div v-bind:class="{ votedBar: isVoted }" v-show="isVoted" type="progress-bar" id="bar-1"></div>
-      <label v-bind:class="{ votedNum: isVoted }" v-show="isVoted" id="percent-1">{{percent1}}</label>
+      <label v-bind:class="{ votedNum: isVoted }" v-show="isVoted" id="percent-1">{{percent_1}}</label>
     </section>
     
     <input type="radio" id ="op2" name="Option"  v-on:click="showPercent"/>
     <label class="button-2" for="op2"></label> 
     <section class="content-2">
-      <label class="option-2" for="op2">{{option2}}</label>
+      <label class="option-2" for="op2">第二個：五六七八九十一二三四五六七八九十一二三四五六七八九十。{{option2}}</label>
       <div v-bind:class="{ votedBar: isVoted }" v-show="isVoted" type="progress-bar" id="bar-2"></div>
-      <label v-bind:class="{ votedNum: isVoted }" v-show="isVoted" id="percent-2">{{percent2}}</label>
+      <label v-bind:class="{ votedNum: isVoted }" v-show="isVoted" id="percent-2">{{percent_2}}</label>
     </section>
     
     <input type="radio" id ="op3" name="Option"  v-on:click="showPercent"/>
     <label class="button-3" for="op3"></label> 
     <section class="content-3">
-      <label class="option-3" for="op3">{{option3}}</label>
+      <label class="option-3" for="op3">第三個：五六七八九十一二三四五六七八九十一二三四五六七八九十。{{option3}}</label>
       <div v-bind:class="{ votedBar: isVoted }" v-show="isVoted" type="progress-bar" id="bar-3"></div>
-      <label v-bind:class="{ votedNum: isVoted }" v-show="isVoted" id="percent-3">{{percent3}}</label>
+      <label v-bind:class="{ votedNum: isVoted }" v-show="isVoted" id="percent-3">{{percent_3}}</label>
     </section>
   </div>
 </form>
 </template>
 
 <script>
-
 import axios from '~/plugins/axios'
 
 export default {
@@ -45,8 +45,10 @@ export default {
   },
   async asyncData () {
     try {
-      const result = await axios.get('/api/')
-      // TODO: get result.data
+      const result = await axios.get('/api/getVoteResult')
+      result.percent_1 = this.percent_1
+      result.percent_2 = this.percent_2
+      result.percent_3 = this.percent_3
     } catch (error) {
       console.log(error)
     }
@@ -56,8 +58,10 @@ export default {
       if (!this.isVoted) {
         this.isVoted = true
         try {
-          const result = await axios.get('/api/')
-          // TODO: get result.data, and recompute the voting percent
+          const result = await axios.get('/api/vote')
+          result.percent_1 = this.percent_1
+          result.percent_2 = this.percent_2
+          result.percent_3 = this.percent_3
         } catch (error) {
           console.log(error)
         }
@@ -73,13 +77,13 @@ input[type="radio"] {
 }
 
 input[type="radio"] + label:before {
-  font-family: 'Font Awesome 5 Free';
+  font-family: "FontAwesome";
   content: "\f00c";
   border: 0.27vw solid #CDCDCD;
+  vertical-align: middle;
   display: inline-block;
   width: 5.33vw;
   height: 5.33vw;
-  vertical-align: middle;
   color: #fff;
   cursor: pointer;
 }
@@ -140,6 +144,7 @@ input[type="radio"]:checked + label:before {
 
 .option-1, .option-2, .option-3 {
   display: block;
+  line-height: 6.93vw;
 }
 
 .content-1, .content-2, .content-3 {
