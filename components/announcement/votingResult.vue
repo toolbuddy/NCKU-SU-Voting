@@ -73,8 +73,9 @@ input[type="radio"] + label:before {
   display: inline-block;
   width: 5.33vw;
   height: 5.33vw;
-  background-color: #fff;
-  color: #fff;
+  font-size: 5vw;
+  background-color: #f5f5f5;
+  color: #f5f5f5;
   cursor: pointer;
 }
 
