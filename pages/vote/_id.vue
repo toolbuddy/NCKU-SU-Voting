@@ -37,14 +37,20 @@
       <br>
       <label>發布者：{{author}}</label>
     </section>
-    
+    <section>
+      <voting-result></voting-result>
+    </section>
   </div>
 </template>
 
 <script>
 import axios from '~/plugins/axios.js'
+import votingResult from '~/components/announcement/votingResult.vue'
 
 export default {
+  components: {
+    votingResult
+  },
   async asyncData ({ params, error }) {
     if (parseInt(params.id) < 1 || parseInt(params.id) > 6) {
       error({ statusCode: 404, message: 'Page not found' })
