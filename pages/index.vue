@@ -23,76 +23,71 @@
         <h2>一些副標文字，<br>說明這則新聞的內容。</h2>
         </div>
       </div>
-    </div>
+    </router-link>
     
     <div class="article_title">
       <div class="_article_title">
-      <img class="articleicon" src="~/assets/img/articleicon.png">
-      <h3>文章總覽</h3>
+        <img class="articleicon" src="~/assets/img/articleicon.png">
+        <h3>文章總覽</h3>
       </div>
     </div>
     <div class="article_subtitle">
       <div class="_article_subtitle">
-    <h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5>
-    </div>
-    <img class="news1" src="~/assets/img/news1.png">
-    <img class="news2" src="~/assets/img/news2.png">
-    <img class="news3" src="~/assets/img/news3.png">
+        <h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5>
+      </div>
+      <img class="news1" src="~/assets/img/news1.png">
+      <img class="news2" src="~/assets/img/news2.png">
+      <img class="news3" src="~/assets/img/news3.png">
     </div>
     <div class="show_more">
-       <div class="_show_more">
-      <h6>顯示更多</h6>
+      <div class="_show_more">
+        <h6>顯示更多</h6>
       </div>
     </div>
 
     <div class="graycolor">
-    <div class="_graycolor">
-      <img class="publicstage" src="~/assets/img/publicstage.png">
-      <h3>公共參與平台</h3>
+      <div class="_graycolor">
+        <img class="publicstage" src="~/assets/img/publicstage.png">
+        <h3>公共參與平台</h3>
       </div>
-      </div>
-    <div class="publicstage_subtitle">
-  <div class="_publicstage_subtitle">
-    <h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5>
     </div>
-    <div class="box1"><h4>文化</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-    <div class="box2"><h4>教育</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-    <div class="box3"><h4>轉型正義</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-    </div>
-      <div class="show_more2">
-       <div class="_show_more2">
-      <h6>顯示更多</h6>
-      </div>
-      </div>
-      
 
+    <div class="publicstage_subtitle">
+      <div class="_publicstage_subtitle">
+        <h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5>
+      </div>
+      <div class="box1"><h4>文化</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+      <div class="box2"><h4>教育</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+      <div class="box3"><h4>轉型正義</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+    </div>
+    <div class="show_more2">
+      <div class="_show_more2">
+        <h6>顯示更多</h6>
+      </div>
+    </div>
 
     <div class="graycolor2">
-    <div class="_graycolor2">
-      <h3>關於學生會</h3>
+      <div class="_graycolor2">
+        <h3>關於學生會</h3>
       </div>
-      </div>
-    <div class="aboutsu_subtitle">
-  <div class="_aboutsu_subtitle">
-    <h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5>
     </div>
-    <div class="box1"><h4>組織架構</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-    <div class="box2"><h4>學生會史</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-    <div class="box3"><h4>組織章程</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-    <div class="box4"><h4>法規彙編</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-    <div class="box5"><h4>會長的話</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-    </div>
-      <div class="show_more3">
-       <div class="_show_more3">
-      <h6>顯示更多</h6>
-      </div>
-      </div>
-
- 
-
     
+    <div class="aboutsu_subtitle">
+      <div class="_aboutsu_subtitle">
+        <h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5>
+      </div>
+      <div class="box1"><h4>組織架構</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+      <div class="box2"><h4>學生會史</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+      <div class="box3"><h4>組織章程</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+      <div class="box4"><h4>法規彙編</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+      <div class="box5"><h4>會長的話</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
     </div>
-
+    <div class="show_more3">
+      <div class="_show_more3">
+        <h6>顯示更多</h6>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
