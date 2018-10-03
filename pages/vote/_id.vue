@@ -41,6 +41,7 @@
     <section>
       <voting-result></voting-result>
     </section>
+
   </div>
 </template>
 

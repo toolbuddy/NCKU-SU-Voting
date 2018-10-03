@@ -7,15 +7,15 @@
     <label class="button-1" for="op1"></label>
     <section class="content-1">
       <label class="option-1" for="op1">第一個：五六七八九十一二三四五六七八九十一二三四五六七八九十。{{option1}}</label>
-      <div v-bind:class="{ votedBar: isVoted }" v-show="isVoted" type="progress-bar" id="bar-1"></div>
-      <label v-bind:class="{ votedNum: isVoted }" v-show="isVoted" id="percent-1">{{percent_1}}</label>
+      <div v-bind:class="{ votedBar: isVoted }" v-bind:style="{ width: percent_1 + '%' }" v-show="isVoted" type="progress-bar" id="bar-1"></div>
+      <label v-bind:class="{ votedNum: isVoted }"  v-show="isVoted" id="percent-1">{{percent_1}}</label>
     </section>
     
     <input type="radio" id ="op2" name="Option"  v-on:click="showPercent"/>
     <label class="button-2" for="op2"></label> 
     <section class="content-2">
       <label class="option-2" for="op2">第二個：五六七八九十一二三四五六七八九十一二三四五六七八九十。{{option2}}</label>
-      <div v-bind:class="{ votedBar: isVoted }" v-show="isVoted" type="progress-bar" id="bar-2"></div>
+      <div v-bind:class="{ votedBar: isVoted }" v-bind:style="{ width: percent_2 + '%' }" v-show="isVoted" type="progress-bar" id="bar-2"></div>
       <label v-bind:class="{ votedNum: isVoted }" v-show="isVoted" id="percent-2">{{percent_2}}</label>
     </section>
     
@@ -23,7 +23,7 @@
     <label class="button-3" for="op3"></label> 
     <section class="content-3">
       <label class="option-3" for="op3">第三個：五六七八九十一二三四五六七八九十一二三四五六七八九十。{{option3}}</label>
-      <div v-bind:class="{ votedBar: isVoted }" v-show="isVoted" type="progress-bar" id="bar-3"></div>
+      <div v-bind:class="{ votedBar: isVoted }" v-bind:style="{ width: percent_3 + '%' }" v-show="isVoted" type="progress-bar" id="bar-3"></div>
       <label v-bind:class="{ votedNum: isVoted }" v-show="isVoted" id="percent-3">{{percent_3}}</label>
     </section>
   </div>
@@ -34,7 +34,7 @@
 import axios from '~/plugins/axios'
 
 export default {
-  props: ['option1', 'option2', 'option3'],
+  props: ['option1', 'option2', 'option3', 'questionID'],
   data () {
     return {
       isVoted: false,
@@ -43,25 +43,14 @@ export default {
       percent_3: 0
     }
   },
-  async asyncData () {
-    try {
-      const result = await axios.get('/api/getVoteResult')
-      result.percent_1 = this.percent_1
-      result.percent_2 = this.percent_2
-      result.percent_3 = this.percent_3
-    } catch (error) {
-      console.log(error)
-    }
-  },
   methods: {
     async showPercent () {
       if (!this.isVoted) {
         this.isVoted = true
         try {
-          const result = await axios.get('/api/vote')
-          result.percent_1 = this.percent_1
-          result.percent_2 = this.percent_2
-          result.percent_3 = this.percent_3
+          this.percent_1 = await axios.get('/api/vote?id=' + this.questionID)
+          this.percent_2 = await axios.get('/api/vote?id=' + (this.questionID + 1))
+          this.percent_3 = await axios.get('/api/vote?id=' + (this.questionID + 2))
         } catch (error) {
           console.log(error)
         }
@@ -84,6 +73,7 @@ input[type="radio"] + label:before {
   display: inline-block;
   width: 5.33vw;
   height: 5.33vw;
+  background-color: #fff;
   color: #fff;
   cursor: pointer;
 }
