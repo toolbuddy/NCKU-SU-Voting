@@ -35,9 +35,9 @@
       <div class="_article_subtitle">
         <h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5>
       </div>
-      <img class="news1" src="~/assets/img/news1.png">
-      <img class="news2" src="~/assets/img/news2.png">
-      <img class="news3" src="~/assets/img/news3.png">
+      <article-column v-bind:url="image" v-bind:title="title" v-bind:subtitle="subtitle"> </article-column>
+      <article-column v-bind:url="image" v-bind:title="title" v-bind:subtitle="subtitle"> </article-column>
+      <article-column v-bind:url="image" v-bind:title="title" v-bind:subtitle="subtitle"> </article-column>
     </div>
     <div class="show_more">
       <div class="_show_more">
@@ -91,12 +91,16 @@
 </template>
 
 <script>
+import axios from '~/plugins/axios'
+import qs from 'querystring'
 import bighead from '../components/bighead'
+import articleColumn from '~/components/articleColumn.vue'
 
 export default {
   name: 'Login',
   components: {
-    bighead
+    bighead,
+    articleColumn
   },
   head () {
     return {
@@ -105,8 +109,22 @@ export default {
   },
   data () {
     return {
-      profile: {},
-      isLogin: false
+    }
+  },
+  async asyncData () {
+    try {
+      const params = {
+        limit: 1,
+        offset: 0
+      }
+      const result = await axios.post('/api/getArticles', {
+        method: 'post',
+        data: qs.stringify(params)
+      })
+      console.log(result.data)
+      return result.data
+    } catch (error) {
+      console.log('Get article failed')
     }
   },
   methods: {

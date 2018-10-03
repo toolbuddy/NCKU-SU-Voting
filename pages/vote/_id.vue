@@ -37,7 +37,6 @@
       <br>
       <label>發布者：{{author}}</label>
     </section>
-
     <section>
       <voting-result></voting-result>
     </section>

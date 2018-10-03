@@ -73,7 +73,7 @@ input[type="radio"] {
 }
 
 input[type="radio"] + label:before {
-  font-family: 'FontAwesome';
+  font-family: 'Font Awesome 5 Free';
   content: "\f00c";
   border: 0.27vw solid #CDCDCD;
   display: inline-block;

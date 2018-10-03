@@ -15,6 +15,6 @@ const transporter = nodemailer.createTransport({
 
 router.post('/sendMessage', urlencodedParser, (req, res) => {
   const sender = req.body.sender
-  const receiver = ''
-
 })
+
+module.exports = router
