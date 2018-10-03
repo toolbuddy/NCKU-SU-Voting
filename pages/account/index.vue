@@ -3,7 +3,7 @@
     <h1>登入成功！</h1>
     <section>
       <h3>接下來你可以：</h3>
-      <h4>使用投票功能</h4>
+      <h4><i class="fas fa-check"></i>使用投票功能</h4>
       <h3>進入相關文章，票選市長辯論問題：</h3>
       <ul>
         <router-link v-for="(title, index) in titles" v-bind:key="index" v-bind:to="{path: '/vote/' + (index+1)}" tag="li"> {{title}} </router-link>

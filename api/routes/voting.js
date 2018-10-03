@@ -4,11 +4,19 @@ const bodyParser = require('body-parser')
 const urlencodedParser = bodyParser.urlencoded({extends : false})
 const votingOp = require('../../model/query/func.js')
 
-router.post('/Voting',urlencodedParser,(req,res)=>{
-  let choice = req.body.name
-  let id = req.body.id
-  votingOp.select(id,choice)
+router.post('/vote', urlencodedParser, (req, res) => {
+  const choice = req.body.choice
+  const userID = req.body.userID
+  votingOp.select(userID, choice)
   res.end()
+})
+
+router.get('/getVoteResult', urlencodedParser, (req, res) => {
+  const id = parseInt(req.query.id)
+  votingOp.rate(id).then((result) => {
+    res.status(200)
+    res.json(result)
+  })
 })
 
 module.exports = router
