@@ -2,7 +2,7 @@
     <div class="container">
         <label class="btn-close"></label>
         <img class="mailSucPhoto" src="~/assets/img/mailSuc.png"/>
-        <label class="tick">tick</label>
+        <label class="tick"><i class="fas fa-check"></i></label>
         <label class="msg">信件已成功寄出！</label>
     </div>
 </template>
