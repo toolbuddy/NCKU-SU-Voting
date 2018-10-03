@@ -39,19 +39,24 @@
     </section>
 
     <section>
-      <voting-result></voting-result>
+      <voting-result v-bind:option1="options.first" v-bind:option2="options.second" v-bind:option3="options.third" v-bind:questionID="id"></voting-result>
     </section>
-
+    
+    <section>
+      <related-section v-bind:related="related" title="進入相關文章，票選市長辯論問題："></related-section>
+    </section>
   </div>
 </template>
 
 <script>
 import axios from '~/plugins/axios.js'
 import votingResult from '~/components/announcement/votingResult.vue'
+import RelatedSection from '~/components/announcement/relatedSection.vue'
 
 export default {
   components: {
-    votingResult
+    votingResult,
+    RelatedSection
   },
   async asyncData ({ params, error }) {
     if (parseInt(params.id) < 1 || parseInt(params.id) > 6) {
@@ -59,6 +64,9 @@ export default {
     }
     try {
       const result = await axios.get(`/api/getVoteContent?id=${params.id}`)
+      result.data.id = params.id
+      const related = await axios.get(`/api/getDetailContent?id=${params.id}`)
+      result.data.related = related.data.related
       return result.data
     } catch (error) {
       console.log('Get vote content failed!!')

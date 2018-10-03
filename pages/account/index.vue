@@ -4,18 +4,19 @@
     <section>
       <h3>接下來你可以：</h3>
       <h4><i class="fas fa-check"></i>使用投票功能</h4>
-      <h3>進入相關文章，票選市長辯論問題：</h3>
-      <ul>
-        <router-link v-for="(title, index) in titles" v-bind:key="index" v-bind:to="{path: '/vote/' + (index+1)}" tag="li"> {{title}} </router-link>
-      </ul>
+      <related-section v-bind:related="related" title="進入相關文章，票選市長辯論問題："></related-section>
     </section>
   </div>
 </template>
 
 <script>
 import axios from '~/plugins/axios'
+import RelatedSection from '~/components/announcement/relatedSection.vue'
 
 export default {
+  components: {
+    RelatedSection
+  },
   data () {
     return {
       titles: []
@@ -23,9 +24,9 @@ export default {
   },
   async asyncData () {
     try {
-      let result = await axios.get('/api/getAllVote')
+      const result = await axios.get(`/api/getDetailContent?id=1`)
       return {
-        titles: result.data
+        titles: result.data.related
       }
     } catch (error) {
       console.log(error)
@@ -94,29 +95,5 @@ h4 {
   font-size:  4.27vw;
   font-weight: 500;
 }
-
-
-ul {
-  color: #707070;
-  font-size: 3.74vw;
-  padding: 0;
-  margin: 0;
-}
-
-li::before {
-  content: '';
-  display: inline-block;
-  border-style: solid;
-  border-width: 1.6vw 0 1.6vw 2.4vw;
-  border-color: transparent transparent transparent #74bfc3;
-  cursor: pointer;
-}
-
-li {
-  margin: 2.14vw;
-  list-style-type: none;
-  cursor: pointer;
-}
-
 
 </style>
