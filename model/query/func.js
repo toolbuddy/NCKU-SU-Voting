@@ -77,3 +77,7 @@ function rate(id) {
 rate(1)
 .then( res => { console.log(res)})
 */
+module.exports = {
+  select,
+  rate
+}
