@@ -27,7 +27,9 @@
     
     <div class="article_title">
       <div class="_article_title">
-        <img class="articleicon" src="~/assets/img/articleicon.png">
+        <svg class="articleicon" width="22vw" height="22vw" v-on:click="handleClickTouch" v-on:touchstart="handleClickTouch">
+          <image xlink:href="~/assets/img/system/fig01.svg" width="22vw" height="22vw"></image>
+        </svg>
         <h3>文章總覽</h3>
       </div>
     </div>
@@ -47,7 +49,9 @@
 
     <div class="graycolor">
       <div class="_graycolor">
-        <img class="publicstage" src="~/assets/img/publicstage.png">
+        <svg class="publicstage" width="22vw" height="22vw" v-on:click="handleClickTouch" v-on:touchstart="handleClickTouch">
+          <image xlink:href="~/assets/img/system/fig02.svg" width="22vw" height="22vw"></image>
+        </svg>
         <h3>公共參與平台</h3>
       </div>
     </div>
@@ -219,7 +223,7 @@ img.homephoto {
 
 .article_title {
   position: absolute;
-  top: 205vw;
+  top: 182vw;
   left: 0vw;
   width: 100%;
   height:auto;
@@ -231,16 +235,13 @@ img.homephoto {
   top: 0vw;
   left: 34.8vw;
   height: auto;
-  text-align: left;
+  text-align: center;
 }
 
-img.articleicon {
-  position: absolute;
-  top: -14.3vw;
-  padding-left:3.57vw;
-  height: 22.14vw;
-  width: auto;
+svg.articleicon {
+  
   display: block;
+  margin: 0 auto;
 }
 
 .article_subtitle {
@@ -317,18 +318,16 @@ img.news3 {
 
 ._graycolor {
   position: absolute;
-  top: 35.71vw;
+  top: 10vw;
   left: 29vw;
   height: auto;
   text-align: left;
 }
 
-img.publicstage {
-  position: absolute;
+svg.publicstage {
   top: -14.4vw;
-  padding-left:12vw;
   display: block;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .publicstage_subtitle {

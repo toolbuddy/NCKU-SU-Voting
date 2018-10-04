@@ -64,7 +64,7 @@ export default {
     }
     try {
       const result = await axios.get(`/api/getVoteContent?id=${params.id}`)
-      result.data.id = params.id
+      result.data.id = parseInt(params.id)
       const related = await axios.get(`/api/getDetailContent?id=${params.id}`)
       result.data.related = related.data.related
       return result.data

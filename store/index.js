@@ -1,15 +1,17 @@
 export const state = () => ({
   authUser: null,
-  isLogin: false
+  vote: -1
 })
 
 export const getters = {
-
+  getAuthUser: (state) => state.authUser,
+  getVote: (state) => state.vote
 }
 
 export const mutations = {
   SET_USER: (state, data) => {
     state.authUser = data.userID
+    state.vote = data.vote
   }
 }
 
