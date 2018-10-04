@@ -53,7 +53,7 @@ export default {
   async mounted () {
     try {
       if (this.$store.getters.getAuthUser) {
-        this.isVoted = (await axios.get(`/api/checkVoted?userID=${this.$store.getters.getAuthUser}`)).data
+        this.isVoted = this.$store.getters.getVote !== -1
         this.voted = this.$store.getters.getVote
       } else {
         this.isVoted = false
@@ -70,7 +70,7 @@ export default {
         this.voted = index
         try {
           const params = {
-            userID: 'test3',
+            userID: this.$store.getters.getAuthUser,
             choice: (this.questionID - 1) * 3 + index
           }
           console.log(params)
