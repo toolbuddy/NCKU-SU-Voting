@@ -6,10 +6,14 @@
 </template>
 
 <script>
+import axios from '~/plugins/axios'
+
 export default {
   methods: {
-    statusChange: function (response) {
+    statusChange: async function (response) {
       if (response.status === 'connected') {
+        const vote = await axios.get(`/api/getVote?userID=${response.authResponse.userID}`)
+        response.authResponse.vote = vote
         this.$store.dispatch('login', response.authResponse)
         this.$router.go('/account')
       }

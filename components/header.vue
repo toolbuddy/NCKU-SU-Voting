@@ -1,21 +1,18 @@
 <template>
   <div>
     <section class="container">
-      <h3>成大學生會</h3>
-      <svg v-show="!display" width="6.5vw" height="5.5vw" v-on:click="handleClickTouch" v-on:touchstart="handleClickTouch">
-        <rect y="0" width="6.5vw" height="1.5vw" fill="#74bfc3"></rect>
-        <rect y="2vw" width="6.5vw" height="1.5vw" fill="#74bfc3"></rect>
-        <rect y="4vw" width="6.5vw" height="1.5vw" fill="#74bfc3"></rect>
+      <router-link to="/" tag="h3">成大學生會</router-link>
+      <svg  width="8vw" height="8vw" v-on:click="handleClickTouch" v-on:touchstart="handleClickTouch">
+        <image v-show="!display" xlink:href="~/assets/img/system/option.svg" width="8vw" height="8vw"></image>
+        <image v-show="display" xlink:href="~/assets/img/system/home.svg" width="8vw" height="8vw"></image>
       </svg>
-      <label v-show="display" style="margin-left: auto;"> Home icon here</label>
     </section>
-    <section class="select-column" v-bind:class="{show: display}">
+    <section class="select-column" v-bind:class="{'column-show': display}">
       <router-link to="#" tag="button"> 文章總覽 </router-link>
       <router-link to="#" tag="button"> 公共參與平台 </router-link>
       <router-link to="#" tag="button"> 關於學生會 </router-link>
       <router-link to="#" tag="button"> 聯絡我們 </router-link>
       <router-link to="/account/login" tag="button"> 使用 facebook 登入 </router-link>
-
     </section>
   </div>
 
@@ -91,7 +88,7 @@ export default {
     top: 0;
     height: 14vw;
     width: 100%;
-    background-color:#f6f6f6;
+    background-color: #FFFFFF;
     padding: 1vw;
     box-sizing: border-box;
     transition: top .4s ease-in-out;
@@ -115,10 +112,6 @@ export default {
     top: -14vw;
   } 
 
-  .active {
-    background-color: rgba(0, 0, 0, 0.33);
-  }
-
   .select-column {
     transition: .4s ease-in-out;
     opacity: 0;
@@ -138,7 +131,7 @@ export default {
     padding: 6.4vw;
   }
 
-  .show {
+  .column-show {
     opacity: 1;
     visibility: visible;
   }
