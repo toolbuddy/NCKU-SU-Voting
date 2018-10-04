@@ -38,8 +38,11 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
   },
+  modules: [
+    'nuxt-imagemin',
+  ],
   serverMiddleware: [
     // API middleware
     '~/api/index.js'

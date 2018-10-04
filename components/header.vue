@@ -8,10 +8,10 @@
       </svg>
     </section>
     <section class="select-column" v-bind:class="{'column-show': display}">
-      <router-link to="#" tag="button"> 文章總覽 </router-link>
-      <router-link to="#" tag="button"> 公共參與平台 </router-link>
-      <router-link to="#" tag="button"> 關於學生會 </router-link>
-      <router-link to="#" tag="button"> 聯絡我們 </router-link>
+      <router-link to="#" tag="button"> 文章總覽 (尚未開放)</router-link>
+      <router-link to="#" tag="button"> 公共參與平台 (尚未開放</router-link>
+      <router-link to="#" tag="button"> 關於學生會 (尚未開放)</router-link>
+      <router-link to="#" tag="button"> 聯絡我們 (尚未開放)</router-link>
       <router-link to="/account/login" tag="button"> 使用 facebook 登入 </router-link>
     </section>
   </div>
