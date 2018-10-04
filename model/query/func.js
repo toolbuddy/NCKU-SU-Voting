@@ -22,7 +22,7 @@ function select(name, choice) {
   })
 }
 /* example
-select('xxxaga', 1)
+select('xxxaba', 1)
 .then( res => {
   console.log(res)
 })
@@ -30,6 +30,27 @@ select('xxxaga', 1)
   console.log(err)
 })
 */
+
+function getChoice(id) {
+	return new Promise( (resolve, reject) => {
+		poll.findByid(id)
+		.then( res => {
+			resolve(res.getDataValue('choice'))
+		})
+		.catch( err => {
+			reject("You haven't make your choice")
+		})
+	})
+}
+/* example
+getChoice('xxxaba')
+.then( res => {
+	console.log(res)
+})
+.catch( err => {
+	console.log(err)
+})
+ */
 
 function isFinished(name) {
   return poll.findById(name);
@@ -79,5 +100,8 @@ rate(1)
 */
 module.exports = {
   select,
-  rate
+	getChoice,
+	isFinished,
+	sum,
+  rate,
 }
