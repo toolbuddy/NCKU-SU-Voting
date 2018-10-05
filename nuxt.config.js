@@ -21,6 +21,7 @@ module.exports = {
   ** Global CSS
   */
   css: ['~/assets/css/main.css', '~/plugins/fontawesome-free-5.3.1-web/css/all.min.css'],
+  plugins: [ {src: '~plugins/vee-validate.js', ssr: true} ],
   /*
   ** Add axios globally
   */
