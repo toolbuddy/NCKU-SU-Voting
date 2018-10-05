@@ -12,15 +12,15 @@ router.post('/vote', urlencodedParser, (req, res) => {
   res.end()
 })
 
-router.get('/checkVoted', urlencodedParser, (req, res) => {
+router.get('/getVoted', urlencodedParser, (req, res) => {
   const userID = req.query.userID
-  votingOp.isFinished(userID).then(result => {
+  votingOp.getChoice(userID).then(result => {
     res.status(200)
-    res.send(true)
+    res.send(result)
   })
   .catch(error => {
     res.status(200)
-    res.send(false)
+    res.send(-1)
   })
 })
 
