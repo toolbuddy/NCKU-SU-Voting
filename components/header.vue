@@ -12,7 +12,8 @@
       <router-link to="#" tag="button"> 公共參與平台 (尚未開放</router-link>
       <router-link to="#" tag="button"> 關於學生會 (尚未開放)</router-link>
       <router-link to="#" tag="button"> 聯絡我們 (尚未開放)</router-link>
-      <router-link to="/account/login" tag="button"> 使用 facebook 登入 </router-link>
+      <router-link v-if="!this.$store.getters.getAuthUser" to="/account/login" tag="button"> 使用 facebook 登入 </router-link>
+      <router-link v-if="this.$store.getters.getAuthUser" tag="button" v-on:click="logout"> 登出 </router-link>
     </section>
   </div>
 
@@ -66,6 +67,13 @@ export default {
       this.buttonElement.addEventListener('click', this.handleClickTouch.bind(this), false)
       this.buttonElement.addEventListener('touchstart', this.handleClickTouch.bind(this), false)
       window.removeEventListener('click', this.handleHide.bind(this))
+    },
+    logout: function () {
+      window.FB.logout(function (response) {
+        console.log('logout!')
+        this.$store.dispatch('logout')
+        this.$router.go('/')
+      }).bind(this)
     }
   }
 }

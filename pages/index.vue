@@ -27,7 +27,7 @@
     
     <div class="article_title">
       <div class="_article_title">
-        <svg class="articleicon" width="22vw" height="22vw" v-on:click="handleClickTouch" v-on:touchstart="handleClickTouch">
+        <svg class="articleicon" width="22vw" height="22vw">
           <image xlink:href="~/assets/img/system/fig01.svg" width="22vw" height="22vw"></image>
         </svg>
         <h3>文章總覽</h3>
@@ -49,7 +49,7 @@
 
     <div class="graycolor">
       <div class="_graycolor">
-        <svg class="publicstage" width="22vw" height="22vw" v-on:click="handleClickTouch" v-on:touchstart="handleClickTouch">
+        <svg class="publicstage" width="22vw" height="22vw">
           <image xlink:href="~/assets/img/system/fig02.svg" width="22vw" height="22vw"></image>
         </svg>
         <h3>公共參與平台</h3>
@@ -79,15 +79,18 @@
 
     <img class="link-fb" src="~/assets/img/link-fb.png">
     <img class="link-ig" src="~/assets/img/link-ig.png">
-    <img class="Path" src="~/assets/img/Path 1.png">
+    <img class="Path" src="~/assets/img/Path 1.png" v-on:click="sendMessage">
 
     
     <form class="email_form">
-   email <input type="text" class="border" name="mail_address">
+   email <input type="text" class="border" v-model="sender" name="email" v-validate="{ required: true }" v-bind:class="{ 'is-invalid': send && errors.has('email') }" >
+   <span v-if="send && errors.has('email')" class="invalid-feedback"> {{errors.first('email')}} </span>
     <br/>
-   主旨 <input type="text" class="border" name="mail_title">
+   主旨 <input type="text" class="border" v-model="subject" name="subject" v-validate="{ required: true }" v-bind:class="{ 'is-invalid': send && errors.has('subject') }">
+    <span v-if="send && errors.has('subject')" class="invalid-feedback"> {{errors.first('subject')}} </span>
     <br/>
-    <input type="text" class="_border" name="mail_content">
+    <input type="text" class="_border" v-model="content" name="content" v-validate="{ required: true }" v-bind:class="{ 'is-invalid': send && errors.has('content') }">
+    <span v-if="send && errors.has('content')" class="invalid-feedback"> {{errors.first('content')}} </span>
     </form>
 
     
@@ -113,6 +116,10 @@ export default {
   },
   data () {
     return {
+      send: false,
+      sender: '',
+      subject: '',
+      content: ''
     }
   },
   async asyncData () {
@@ -132,41 +139,26 @@ export default {
     }
   },
   methods: {
-    getProfile () {
-      let me = this
-      window.FB.api('/me?field=name,id,email', function (response) {
-        console.log('getProfile', response)
-        me.$set(me, 'profile', response)
+    sendMessage: function () {
+      this.send = true
+      console.log(this.$validator)
+      this.$validator.validateAll().then(async (result) => {
+        console.log(result)
+        if (result) {
+          const params = {
+            sender: this.sender,
+            subject: this.subject,
+            content: this.content
+          }
+          await axios('/api/sendMessage', {
+            method: 'post',
+            data: qs.stringify(params)
+          })
+          this.$router.go(0)
+        } else {
+          alert('Please correct all errors.')
+        }
       })
-    },
-    login () {
-      let me = this
-      window.FB.login(function (response) {
-        console.log('login success!')
-        me.statusChange(response)
-      }, {
-        scope: 'email,public_profile',
-        return_scopes: true
-      })
-    },
-    logout () {
-      let me = this
-      window.FB.logout(function (response) {
-        console.log('logout!')
-        me.statusChange(response)
-      })
-    },
-    statusChange (res) {
-      let me = this
-      if (res.status === 'connected') {
-        me.isLogin = true
-        me.getProfile()
-      } else {
-        me.profile = {}
-        me.isLogin = false
-      }
-      console.log('profile: ', me.profile)
-      console.log('isLogin: ', me.isLogin)
     }
   }
 }
@@ -476,6 +468,7 @@ img.Path{
   display: block;
   margin: auto;
   z-index:3;
+  cursor: pointer;
 }
 
 .email_form {
@@ -503,6 +496,7 @@ img.Path{
   height:82.4vw;
   vertical-align: top;
 }
-
-
+  .is-invalid {
+    border: 1px solid #F44336;
+  }
 </style>

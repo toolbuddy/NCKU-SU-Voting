@@ -18,5 +18,8 @@ export const mutations = {
 export const actions = {
   login: function ({commit}, data) {
     return commit('SET_USER', data)
+  },
+  logout: function ({commit}) {
+    return commit('SET_USER', {userID: null, vote: -1})
   }
 }
