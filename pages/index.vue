@@ -66,6 +66,26 @@
       </div>
     </div>
 
+    <div class="graycolor2">
+      <div class="_graycolor2">
+        <img class="mailSuc" src="~/assets/img/mailSuc.png">
+        <h3>聯絡我們</h3>
+      </div>
+    </div>
+
+    <img class="link-fb" src="~/assets/img/link-fb.png">
+    <img class="link-ig" src="~/assets/img/link-ig.png">
+    <img class="Path" src="~/assets/img/Path 1.png">
+
+    
+    <form class="email_form">
+   email <input type="text" class="border" name="mail_address">
+    <br/>
+   主旨 <input type="text" class="border" name="mail_title">
+    <br/>
+    <input type="text" class="_border" name="mail_content">
+    </form>
+
     
   </div>
 </template>
@@ -413,18 +433,77 @@ img.publicstage {
 
 .graycolor2 {
   position: absolute;
-  top: 714.29vw;
+  top: 650vw;
   left: 0vw;
-  height: 321.43vw;
+  height: 200vw;
   width: 100vw;
-  background-color: #F6F6F6;
+  background-color: #EDEDED;
 }
 
 ._graycolor2 {
   position: absolute;
-  top: 8.93vw;
-  left: 31vw;
-  height: 17.86vw;
+  top: 35.71vw;
+  left: 35vw;
+  height: auto;
   text-align: left;
 }
+
+img.mailSuc {
+  position: absolute;
+  top: -18vw;
+  padding-left:4.5vw;
+  display: block;
+  margin: auto;
+}
+
+img.link-fb {
+  position: absolute;
+  top: 830vw;
+  left:26.4vw;
+  display: block;
+  margin: auto;
+}
+img.link-ig {
+  position: absolute;
+  top: 832.5vw;
+  left:62.6vw;
+  display: block;
+  margin: auto;
+}
+img.Path{
+  position: absolute;
+  top: 805vw;
+  left:75.5vw;
+  display: block;
+  margin: auto;
+  z-index:3;
+}
+
+.email_form {
+  position: absolute;
+  top: 710vw;
+  left:12.5vw;
+  text-align: center;
+  line-height:10vw;
+  color: #707070;
+}
+
+.border{
+  border-radius: 8px;
+  border-color: transparent;
+  width:63.2vw;
+}
+
+._border{
+  position: absolute;
+  top: 22vw;
+  left: 0vw;
+  border-radius: 8px;
+  border-color: transparent;
+  width:74.5vw;
+  height:82.4vw;
+  vertical-align: top;
+}
+
+
 </style>
