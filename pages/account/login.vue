@@ -12,20 +12,22 @@ export default {
   methods: {
     statusChange: async function (response) {
       if (response.status === 'connected') {
+        console.log(response)
         const vote = await axios.get(`/api/getVoted?userID=${response.authResponse.userID}`)
-        response.authResponse.vote = vote
-        this.$store.dispatch('login', response.authResponse)
-        this.$router.go('/account')
+        response.authResponse.vote = parseInt(vote.data)
+        await this.$store.dispatch('login', response.authResponse)
+        this.$router.replace('/account')
       }
     },
     login: function () {
+      const self = this
       window.FB.login(function (response) {
         console.log('login success!')
-        this.statusChange(response)
+        self.statusChange(response)
       }, {
         scope: 'email,public_profile',
         return_scopes: true
-      }).bind(this)
+      })
     }
   }
 }

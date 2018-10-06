@@ -109,11 +109,6 @@ export default {
     bighead,
     articleColumn
   },
-  head () {
-    return {
-      title: 'Voting'
-    }
-  },
   data () {
     return {
       send: false,
