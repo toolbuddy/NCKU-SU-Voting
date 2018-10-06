@@ -6,11 +6,7 @@ const urlencodedParser = bodyParser.urlencoded({extends : false})
 // TODO: Configure DomainKeys Identified Mail in your DNS and code.
 const sendmail = require('sendmail')({
   smtpHost: '140.116.219.159',
-  smtpPort: 25,
-  dkim: {
-    privateKey: fs.readFileSync('./dkim-private.pem', 'utf8'),
-    keySelector: 'mydomainkey'
-  },
+  smtpPort: 25
 })
 
 router.post('/sendMessage', urlencodedParser, (req, res) => {
