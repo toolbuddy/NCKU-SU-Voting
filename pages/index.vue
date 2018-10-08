@@ -100,13 +100,11 @@
 <script>
 import axios from '~/plugins/axios'
 import qs from 'querystring'
-import bighead from '../components/bighead'
 import articleColumn from '~/components/articleColumn.vue'
 
 export default {
   name: 'Login',
   components: {
-    bighead,
     articleColumn
   },
   data () {
@@ -115,6 +113,13 @@ export default {
       sender: '',
       subject: '',
       content: ''
+    }
+  },
+  head () {
+    return {
+      meta: [
+        { hid: 'description', name: 'description', content: 'NCKUSU offisial website. Here is the index page of the website, there will be a general message from the student union and options for other page links.' }
+      ]
     }
   },
   async asyncData () {
@@ -132,6 +137,12 @@ export default {
     } catch (error) {
       console.log('Get article failed')
     }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      window.scrollTo(0, 1)
+      window.scrollTo(0, 0)
+    })
   },
   methods: {
     sendMessage: function () {

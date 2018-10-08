@@ -54,6 +54,14 @@ import votingResult from '~/components/announcement/votingResult.vue'
 import RelatedSection from '~/components/announcement/relatedSection.vue'
 
 export default {
+  head () {
+    return {
+      meta: [
+        { hid: 'description', name: 'description', content: 'NCKUSU offisial website. Here is the voting page of the website, there will be a article that descriped from the six Tainan mayor candidate' }
+      ]
+    }
+  },
+
   components: {
     votingResult,
     RelatedSection

@@ -22,6 +22,13 @@ export default {
       related: []
     }
   },
+  head () {
+    return {
+      meta: [
+        { hid: 'description', name: 'description', content: 'NCKUSU offisial website. Here is the account page of the website, there will be a particular message from the backend to tell the user about the latest article that has posted and what feature the user can use.' }
+      ]
+    }
+  },
   async asyncData () {
     try {
       const result = await axios.get(`/api/getDetailContent?id=1`)
