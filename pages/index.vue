@@ -138,12 +138,6 @@ export default {
       console.log('Get article failed')
     }
   },
-  mounted () {
-    this.$nextTick(() => {
-      window.scrollTo(0, 1)
-      window.scrollTo(0, 0)
-    })
-  },
   methods: {
     sendMessage: function () {
       this.send = true
