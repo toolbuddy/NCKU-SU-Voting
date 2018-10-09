@@ -1,17 +1,5 @@
 <template>
   <div>
-    <!--
-    temporarily hide the FB login button
-    <div  class="container">
-      <bighead :isLogin="isLogin" :profile="profile"></bighead>
-      <div v-if="!isLogin">
-          <button type="button" v-on:click="login"> Login</button>
-      </div>
-      <div v-else>
-          <button type="button" v-on:click="logout"> Logout</button>
-      </div>
-    </div>
-    -->
 
     <router-link v-bind:to="{path: '/detail/1'}" >
       <img class="homephoto" src="~/assets/img/home.png"/>
@@ -27,7 +15,9 @@
     
     <div class="article_title">
       <div class="_article_title">
-        <img class="articleicon" src="~/assets/img/articleicon.png">
+        <svg class="articleicon" width="22vw" height="22vw">
+          <image xlink:href="~/assets/img/system/fig01.svg" width="22vw" height="22vw"></image>
+        </svg>
         <h3>文章總覽</h3>
       </div>
     </div>
@@ -47,7 +37,9 @@
 
     <div class="graycolor">
       <div class="_graycolor">
-        <img class="publicstage" src="~/assets/img/publicstage.png">
+        <svg class="publicstage" width="22vw" height="22vw">
+          <image xlink:href="~/assets/img/system/fig02.svg" width="22vw" height="22vw"></image>
+        </svg>
         <h3>公共參與平台</h3>
       </div>
     </div>
@@ -68,22 +60,37 @@
 
     <div class="graycolor2">
       <div class="_graycolor2">
-        <img class="mailSuc" src="~/assets/img/mailSuc.png">
+        <svg class="mailSuc" width="22vw" height="22vw">
+        <image xlink:href="~/assets/img/system/fig03.svg" width="22vw" height="22vw"></image>
+        </svg>
         <h3>聯絡我們</h3>
       </div>
     </div>
 
-    <img class="link-fb" src="~/assets/img/link-fb.png">
-    <img class="link-ig" src="~/assets/img/link-ig.png">
-    <img class="Path" src="~/assets/img/Path 1.png">
+        
+    <svg class="path" v-on:click="sendMessage">
+    <image xlink:href="~/assets/img/system/path.svg" width="5.83vw"></image>
+    </svg>
+
+    <a href="https://www.facebook.com/NCKUSU/" title="Facebook">        
+        <svg class="link-fb">
+        <image xlink:href="~/assets/img/system/fb.svg" width="10.93vw"></image>
+        </svg>
+    </a>
+    <a href="https://www.instagram.com/ncku_su/" title="Instagram">      
+        <svg class="link-ig">
+        <image xlink:href="~/assets/img/system/ig.svg" width="10.93vw"></image>
+        </svg>
+    </a>
+    
 
     
     <form class="email_form">
-   email <input type="text" class="border" name="mail_address">
+   email <input type="text" class="border" v-model="sender" name="email" v-validate="{ required: true }" v-bind:class="{ 'is-invalid': send && errors.has('email') }" >
     <br/>
-   主旨 <input type="text" class="border" name="mail_title">
+   主旨 <input type="text" class="border" v-model="subject" name="subject" v-validate="{ required: true }" v-bind:class="{ 'is-invalid': send && errors.has('subject') }">
     <br/>
-    <input type="text" class="_border" name="mail_content">
+    <input type="text" class="_border" v-model="content" name="content" v-validate="{ required: true }" v-bind:class="{ 'is-invalid': send && errors.has('content') }">
     </form>
 
     
@@ -93,22 +100,26 @@
 <script>
 import axios from '~/plugins/axios'
 import qs from 'querystring'
-import bighead from '../components/bighead'
 import articleColumn from '~/components/articleColumn.vue'
 
 export default {
   name: 'Login',
   components: {
-    bighead,
     articleColumn
-  },
-  head () {
-    return {
-      title: 'Voting'
-    }
   },
   data () {
     return {
+      send: false,
+      sender: '',
+      subject: '',
+      content: ''
+    }
+  },
+  head () {
+    return {
+      meta: [
+        { hid: 'description', name: 'description', content: 'NCKUSU offisial website. Here is the index page of the website, there will be a general message from the student union and options for other page links.' }
+      ]
     }
   },
   async asyncData () {
@@ -128,41 +139,26 @@ export default {
     }
   },
   methods: {
-    getProfile () {
-      let me = this
-      window.FB.api('/me?field=name,id,email', function (response) {
-        console.log('getProfile', response)
-        me.$set(me, 'profile', response)
+    sendMessage: function () {
+      this.send = true
+      console.log(this.$validator)
+      this.$validator.validateAll().then(async (result) => {
+        console.log(result)
+        if (result) {
+          const params = {
+            sender: this.sender,
+            subject: this.subject,
+            content: this.content
+          }
+          await axios('/api/sendMessage', {
+            method: 'post',
+            data: qs.stringify(params)
+          })
+          this.$router.go(0)
+        } else {
+          alert('請輸入正確的資料!')
+        }
       })
-    },
-    login () {
-      let me = this
-      window.FB.login(function (response) {
-        console.log('login success!')
-        me.statusChange(response)
-      }, {
-        scope: 'email,public_profile',
-        return_scopes: true
-      })
-    },
-    logout () {
-      let me = this
-      window.FB.logout(function (response) {
-        console.log('logout!')
-        me.statusChange(response)
-      })
-    },
-    statusChange (res) {
-      let me = this
-      if (res.status === 'connected') {
-        me.isLogin = true
-        me.getProfile()
-      } else {
-        me.profile = {}
-        me.isLogin = false
-      }
-      console.log('profile: ', me.profile)
-      console.log('isLogin: ', me.isLogin)
     }
   }
 }
@@ -239,7 +235,7 @@ img.homephoto {
 
 .article_title {
   position: absolute;
-  top: 205vw;
+  top: 182vw;
   left: 0vw;
   width: 100%;
   height:auto;
@@ -251,16 +247,13 @@ img.homephoto {
   top: 0vw;
   left: 34.8vw;
   height: auto;
-  text-align: left;
+  text-align: center;
 }
 
-img.articleicon {
-  position: absolute;
-  top: -14.3vw;
-  padding-left:3.57vw;
-  height: 22.14vw;
-  width: auto;
+svg.articleicon {
+  
   display: block;
+  margin: 0 auto;
 }
 
 .article_subtitle {
@@ -337,18 +330,16 @@ img.news3 {
 
 ._graycolor {
   position: absolute;
-  top: 35.71vw;
+  top: 10vw;
   left: 29vw;
   height: auto;
   text-align: left;
 }
 
-img.publicstage {
-  position: absolute;
+svg.publicstage {
   top: -14.4vw;
-  padding-left:12vw;
   display: block;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .publicstage_subtitle {
@@ -442,41 +433,44 @@ img.publicstage {
 
 ._graycolor2 {
   position: absolute;
-  top: 35.71vw;
+  top: 15vw;
   left: 35vw;
   height: auto;
   text-align: left;
 }
 
-img.mailSuc {
-  position: absolute;
+svg.mailSuc {
   top: -18vw;
-  padding-left:4.5vw;
   display: block;
-  margin: auto;
+  margin: 0 auto;
 }
 
-img.link-fb {
+
+svg.link-fb {
   position: absolute;
   top: 830vw;
   left:26.4vw;
+  width:10.93vw;
   display: block;
   margin: auto;
 }
-img.link-ig {
+svg.link-ig {
   position: absolute;
-  top: 832.5vw;
+  top: 830vw;
   left:62.6vw;
+  width:10.93vw;
   display: block;
   margin: auto;
 }
-img.Path{
+svg.path{
   position: absolute;
   top: 805vw;
   left:75.5vw;
+  width:5.83vw;
   display: block;
   margin: auto;
   z-index:3;
+  cursor: pointer;
 }
 
 .email_form {
@@ -484,6 +478,7 @@ img.Path{
   top: 710vw;
   left:12.5vw;
   text-align: center;
+  font-size: 4.266vw;
   line-height:10vw;
   color: #707070;
 }
@@ -492,6 +487,7 @@ img.Path{
   border-radius: 8px;
   border-color: transparent;
   width:63.2vw;
+  height:6.13vw;
 }
 
 ._border{
@@ -504,6 +500,8 @@ img.Path{
   height:82.4vw;
   vertical-align: top;
 }
-
+  .is-invalid {
+    border: 1px solid #F44336;
+  }
 
 </style>

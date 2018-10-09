@@ -6,22 +6,36 @@
 </template>
 
 <script>
+import axios from '~/plugins/axios'
+
 export default {
+  head () {
+    return {
+      meta: [
+        { hid: 'description', name: 'description', content: 'NCKUSU offisial website. Here is the account login page of the website, there will be a button let user login with facebook authorization.' }
+      ]
+    }
+  },
+
   methods: {
-    statusChange: function (response) {
+    statusChange: async function (response) {
       if (response.status === 'connected') {
-        this.$store.dispatch('login', response.authResponse)
-        this.$router.go('/account')
+        console.log(response)
+        const vote = await axios.get(`/api/getVoted?userID=${response.authResponse.userID}`)
+        response.authResponse.vote = parseInt(vote.data)
+        await this.$store.dispatch('login', response.authResponse)
+        this.$router.replace('/account')
       }
     },
     login: function () {
+      const self = this
       window.FB.login(function (response) {
         console.log('login success!')
-        this.statusChange(response)
+        self.statusChange(response)
       }, {
         scope: 'email,public_profile',
         return_scopes: true
-      }).bind(this)
+      })
     }
   }
 }

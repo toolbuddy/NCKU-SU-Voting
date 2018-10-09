@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page">
     <h1>登入成功！</h1>
     <section>
       <h3>接下來你可以：</h3>
@@ -19,14 +19,21 @@ export default {
   },
   data () {
     return {
-      titles: []
+      related: []
+    }
+  },
+  head () {
+    return {
+      meta: [
+        { hid: 'description', name: 'description', content: 'NCKUSU offisial website. Here is the account page of the website, there will be a particular message from the backend to tell the user about the latest article that has posted and what feature the user can use.' }
+      ]
     }
   },
   async asyncData () {
     try {
       const result = await axios.get(`/api/getDetailContent?id=1`)
       return {
-        titles: result.data.related
+        related: result.data.related
       }
     } catch (error) {
       console.log(error)
@@ -45,7 +52,6 @@ div {
   width: 100vw;
   background-color: #f6f6f6;
   text-align: center;
-  min-height: 100vh;
 }
 
 section {
