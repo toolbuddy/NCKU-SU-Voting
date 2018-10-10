@@ -9,6 +9,14 @@
 import axios from '~/plugins/axios'
 
 export default {
+  head () {
+    return {
+      meta: [
+        { hid: 'description', name: 'description', content: 'NCKUSU offisial website. Here is the account login page of the website, there will be a button let user login with facebook authorization.' }
+      ]
+    }
+  },
+
   methods: {
     statusChange: async function (response) {
       if (response.status === 'connected') {

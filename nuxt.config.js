@@ -7,7 +7,9 @@ module.exports = {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { name: ''},
+      { hid: 'description', name: 'description', content: 'NCKUSU offisial website.' },
+      { hid: 'keywords', name: 'keywords', content: 'vue.js, nuxt.js, javascript, nckusu, ncku, 成大, 成功大學, 學生會, 成功' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

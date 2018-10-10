@@ -25,8 +25,15 @@
 import axios from '~/plugins/axios'
 import RelatedColumn from '~/components/announcement/relatedColumn.vue'
 import RelatedSection from '~/components/announcement/relatedSection.vue'
-
 export default {
+  head () {
+    return {
+      meta: [
+        { hid: 'description', name: 'description', content: 'NCKUSU offisial website. Here is the detail page of the website, there will be detailed article content render for a topic.' }
+      ]
+    }
+  },
+
   components: {
     RelatedColumn,
     RelatedSection
@@ -48,54 +55,41 @@ export default {
 </script>
 
 <style scoped>
-
-
 img {
   width: 63.74vw;
   height: 63.74vw;
 }
-
 h1 {
   color: #707070;
   font-size: 6.94vw;
 }
-
 h2 {
   color: #707070;
   font-size: 5.34vw;
 }
-
 p {
   color: #707070;
   font-size: 3.74vw;
 }
-
 label {
   color: #b8b8b8;
   font-size: 3.2vw;
 }
-
 label > time {
   color: #b8b8b8;
   font-size: 3.2vw;
 }
-
 ul {
   color: #707070;
   font-size: 3.74vw
 }
-
 ul li {
   cursor: pointer;
 }
-
-
-
 .center {
   display: flex;
   justify-content: center;
 }
-
 .area {
   box-sizing: border-box;
   padding: 9.5vw;
