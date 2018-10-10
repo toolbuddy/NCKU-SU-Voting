@@ -1,17 +1,5 @@
 <template>
   <div>
-    <!--
-    temporarily hide the FB login button
-    <div  class="container">
-      <bighead :isLogin="isLogin" :profile="profile"></bighead>
-      <div v-if="!isLogin">
-          <button type="button" v-on:click="login"> Login</button>
-      </div>
-      <div v-else>
-          <button type="button" v-on:click="logout"> Logout</button>
-      </div>
-    </div>
-    -->
 
     <router-link v-bind:to="{path: '/detail/1'}" >
       <img class="homephoto" src="~/assets/img/home.png"/>
@@ -72,25 +60,36 @@
 
     <div class="graycolor2">
       <div class="_graycolor2">
-        <img class="mailSuc" src="~/assets/img/mailSuc.png">
+        <svg class="mailSuc" width="22vw" height="22vw">
+        <image xlink:href="~/assets/img/system/fig03.svg" width="22vw" height="22vw"></image>
+        </svg>
         <h3>聯絡我們</h3>
       </div>
     </div>
+        
+    <svg class="path" v-on:click="sendMessage">
+    <image xlink:href="~/assets/img/system/path.svg" width="5.83vw"></image>
+    </svg>
 
-    <img class="link-fb" src="~/assets/img/link-fb.png">
-    <img class="link-ig" src="~/assets/img/link-ig.png">
-    <img class="Path" src="~/assets/img/Path 1.png" v-on:click="sendMessage">
+    <a href="https://www.facebook.com/NCKUSU/" title="Facebook">        
+        <svg class="link-fb">
+        <image xlink:href="~/assets/img/system/fb.svg" width="10.93vw"></image>
+        </svg>
+    </a>
+    <a href="https://www.instagram.com/ncku_su/" title="Instagram">      
+        <svg class="link-ig">
+        <image xlink:href="~/assets/img/system/ig.svg" width="10.93vw"></image>
+        </svg>
+    </a>
+    
 
     
     <form class="email_form">
    email <input type="text" class="border" v-model="sender" name="email" v-validate="{ required: true }" v-bind:class="{ 'is-invalid': send && errors.has('email') }" >
-   <span v-if="send && errors.has('email')" class="invalid-feedback"> {{errors.first('email')}} </span>
     <br/>
    主旨 <input type="text" class="border" v-model="subject" name="subject" v-validate="{ required: true }" v-bind:class="{ 'is-invalid': send && errors.has('subject') }">
-    <span v-if="send && errors.has('subject')" class="invalid-feedback"> {{errors.first('subject')}} </span>
     <br/>
     <input type="text" class="_border" v-model="content" name="content" v-validate="{ required: true }" v-bind:class="{ 'is-invalid': send && errors.has('content') }">
-    <span v-if="send && errors.has('content')" class="invalid-feedback"> {{errors.first('content')}} </span>
     </form>
 
     
@@ -156,7 +155,7 @@ export default {
           })
           this.$router.go(0)
         } else {
-          alert('Please correct all errors.')
+          alert('請輸入正確的資料!')
         }
       })
     }
@@ -433,38 +432,40 @@ svg.publicstage {
 
 ._graycolor2 {
   position: absolute;
-  top: 35.71vw;
+  top: 15vw;
   left: 35vw;
   height: auto;
   text-align: left;
 }
 
-img.mailSuc {
-  position: absolute;
+svg.mailSuc {
   top: -18vw;
-  padding-left:4.5vw;
   display: block;
-  margin: auto;
+  margin: 0 auto;
 }
 
-img.link-fb {
+
+svg.link-fb {
   position: absolute;
   top: 830vw;
   left:26.4vw;
+  width:10.93vw;
   display: block;
   margin: auto;
 }
-img.link-ig {
+svg.link-ig {
   position: absolute;
-  top: 832.5vw;
+  top: 830vw;
   left:62.6vw;
+  width:10.93vw;
   display: block;
   margin: auto;
 }
-img.Path{
+svg.path{
   position: absolute;
   top: 805vw;
   left:75.5vw;
+  width:5.83vw;
   display: block;
   margin: auto;
   z-index:3;
@@ -476,6 +477,7 @@ img.Path{
   top: 710vw;
   left:12.5vw;
   text-align: center;
+  font-size: 4.266vw;
   line-height:10vw;
   color: #707070;
 }
@@ -484,6 +486,7 @@ img.Path{
   border-radius: 8px;
   border-color: transparent;
   width:63.2vw;
+  height:6.13vw;
 }
 
 ._border{
