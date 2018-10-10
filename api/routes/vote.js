@@ -7,8 +7,23 @@ const votingOp = require('../../model/query/func.js')
 router.post('/vote', urlencodedParser, (req, res) => {
   const choice = req.body.choice
   const userID = req.body.userID
+  console.log(req.body)
   votingOp.select(userID, choice)
   res.end()
+})
+
+router.get('/getVoted', urlencodedParser, (req, res) => {
+  const userID = req.query.userID
+  votingOp.getChoice(userID).then(result => {
+    res.status(200)
+    res.send(result)
+    res.end()
+  })
+  .catch(error => {
+    res.status(200)
+    res.send('-1')
+    res.end()
+  })
 })
 
 router.get('/getVoteResult', urlencodedParser, (req, res) => {

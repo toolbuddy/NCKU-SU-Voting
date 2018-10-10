@@ -3,11 +3,13 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'starter',
+    title: 'NCKU-SU',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Nuxt.js project' }
+      { name: ''},
+      { hid: 'description', name: 'description', content: 'NCKUSU offisial website.' },
+      { hid: 'keywords', name: 'keywords', content: 'vue.js, nuxt.js, javascript, nckusu, ncku, 成大, 成功大學, 學生會, 成功' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -21,6 +23,7 @@ module.exports = {
   ** Global CSS
   */
   css: ['~/assets/css/main.css', '~/plugins/fontawesome-free-5.3.1-web/css/all.min.css'],
+  plugins: [ {src: '~plugins/vee-validate.js', ssr: true} ],
   /*
   ** Add axios globally
   */
@@ -38,8 +41,11 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
   },
+  modules: [
+    'nuxt-imagemin',
+  ],
   serverMiddleware: [
     // API middleware
     '~/api/index.js'

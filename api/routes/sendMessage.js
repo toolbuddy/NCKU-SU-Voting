@@ -3,18 +3,27 @@ const router = Router()
 const bodyParser = require('body-parser')
 const urlencodedParser = bodyParser.urlencoded({extends : false})
 
-const nodemailer = require('nodemailer')
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: '',
-    pass: ''
-  }
+// TODO: Configure DomainKeys Identified Mail in your DNS and code.
+const sendmail = require('sendmail')({
+  smtpHost: '140.116.219.159',
+  smtpPort: 25
 })
 
 router.post('/sendMessage', urlencodedParser, (req, res) => {
   const sender = req.body.sender
+  const receiver = 'nckusu@mail.ncku.edu.tw'
+  const subject = req.body.subject
+  const content = req.body.content
+  console.log(req.body)
+  sendmail({
+    from: sender,
+    to: receiver,
+    subject: subject,
+    text: content
+  }, (err, reply) => {
+    console.log(err)
+    console.dir(reply)
+  })
 })
 
 module.exports = router

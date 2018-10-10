@@ -16,14 +16,21 @@ export default {
 }
 </script>
 
-<style>
+
+<style scoped>
+
+div {
+  justify-content: start !important;
+}
+
 p {
   color: #707070;
   font-size: 3.74vw;
+  margin-bottom: 1.5vw;
 }
 ul {
   color: #707070;
-  font-size: 3.74vw;
+  font-size: 4.24vw;
   padding: 0;
   margin: 0;
 }
@@ -31,6 +38,7 @@ ul {
 ul li {
   cursor: pointer;
   list-style-type: none;
+  margin-block-start: 2.5vw;
 }
 
 li::before {
@@ -40,6 +48,6 @@ li::before {
   border-width: 1.6vw 0 1.6vw 2.4vw;
   border-color: transparent transparent transparent #74bfc3;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 1.5vw;
 }
 </style>

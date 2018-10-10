@@ -50,6 +50,6 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   box-sizing: border-box;
-  padding: 12.8vw;
+  padding: 12.8vw 7.8vw;
 }
 </style>

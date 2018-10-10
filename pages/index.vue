@@ -66,7 +66,6 @@
         <h3>聯絡我們</h3>
       </div>
     </div>
-
         
     <svg class="path" v-on:click="sendMessage">
     <image xlink:href="~/assets/img/system/path.svg" width="5.83vw"></image>
@@ -503,5 +502,4 @@ svg.path{
   .is-invalid {
     border: 1px solid #F44336;
   }
-
 </style>
