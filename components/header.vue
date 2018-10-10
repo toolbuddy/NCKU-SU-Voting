@@ -29,6 +29,7 @@ export default {
     }
   },
   mounted () {
+    console.log(this.$store.getters.getAuthUser)
     // add scroll up display header, scroll down hide the header
     const handleScroll = function (event) {
       event.preventDefault()

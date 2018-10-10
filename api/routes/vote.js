@@ -17,10 +17,12 @@ router.get('/getVoted', urlencodedParser, (req, res) => {
   votingOp.getChoice(userID).then(result => {
     res.status(200)
     res.send(result)
+    res.end()
   })
   .catch(error => {
     res.status(200)
-    res.send(-1)
+    res.send('-1')
+    res.end()
   })
 })
 
