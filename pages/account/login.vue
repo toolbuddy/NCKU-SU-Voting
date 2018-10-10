@@ -11,8 +11,9 @@ import axios from '~/plugins/axios'
 export default {
   head () {
     return {
+      title: '成大學生會 - NCKUSU login',
       meta: [
-        { hid: 'description', name: 'description', content: 'NCKUSU offisial website. Here is the account login page of the website, there will be a button let user login with facebook authorization.' }
+        { hid: 'description', name: 'description', content: '這是成功大學學生會的官方網站，目前所在的位置為登入頁面，這邊提供一個按鈕讓使用者連結臉書登入 | NCKUSU offisial website. Here is the account login page of the website, there will be a button let user login with facebook authorization.' }
       ]
     }
   },
@@ -20,7 +21,6 @@ export default {
   methods: {
     statusChange: async function (response) {
       if (response.status === 'connected') {
-        console.log(response)
         const vote = await axios.get(`/api/getVoted?userID=${response.authResponse.userID}`)
         response.authResponse.vote = parseInt(vote.data)
         await this.$store.dispatch('login', response.authResponse)

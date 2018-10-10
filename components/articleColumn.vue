@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img v-bind:src="url"/>
+    <img v-bind:src="url" alt="學生會網站首頁的文章圖片"/>
     <section>
       <h1> {{title}} </h1>
       <h3> {{subtitle}} </h3>

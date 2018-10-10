@@ -33,7 +33,7 @@ select('xxxaba', 1)
 
 function getChoice(id) {
 	return new Promise( (resolve, reject) => {
-		poll.findByid(id)
+		poll.findById(id)
 		.then( res => {
 			resolve(res.getDataValue('choice'))
 		})

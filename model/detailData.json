@@ -7,11 +7,11 @@
   "image": "/related_1.jpg",
   "related": {
     "first": {
-      "title": "台南市長辯論 - 文化提問",
+      "title": "台南市長辯論 - 交通提問",
       "url": "/vote/1"
     },
     "second": {
-      "title": "台南市長辯論 - 教育提問",
+      "title": "台南市長辯論 - 文化提問",
       "url": "/vote/2"
     },
     "third": {
@@ -19,16 +19,12 @@
       "url": "/vote/3"
     },
     "forth": {
-      "title": "台南市長辯論 - 教育提問",
+      "title": "台南市長辯論 - 環境提問",
       "url": "/vote/4"
     },
     "fifth": {
-      "title": "台南市長辯論 - 教育提問",
+      "title": "台南市長辯論 - 學生提問",
       "url": "/vote/5"
-    },
-    "sixth": {
-      "title": "台南市長辯論 - 教育提問",
-      "url": "/vote/6"
     }
   }
 }

@@ -3,11 +3,13 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'NCKU-SU',
+    htmlAttrs: {
+      lang: 'zh-TW'
+    },
+    title: '成大學生會 - NCKUSU',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: ''},
       { hid: 'description', name: 'description', content: 'NCKUSU offisial website.' },
       { hid: 'keywords', name: 'keywords', content: 'vue.js, nuxt.js, javascript, nckusu, ncku, 成大, 成功大學, 學生會, 成功' }
     ],
@@ -16,7 +18,9 @@ module.exports = {
     ],
     script: [
       { src: '/js/fb-sdk.js' },
-      { src: 'https://use.fontawesome.com/6fac2730d4.js' }
+      { src: 'https://use.fontawesome.com/6fac2730d4.js' },
+      { src: 'https://www.googletagmanager.com/gtag/js?id=UA-25295802-2' },
+      { src: '/js/google-analytics.js' }
     ]
   },
   /*

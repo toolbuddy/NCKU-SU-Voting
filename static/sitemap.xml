@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://nckusu.tw/</loc>
+  <lastmod>2018-10-10T15:01:11+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://nckusu.tw/detail/1</loc>
+  <lastmod>2018-10-10T15:01:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nckusu.tw/vote/1</loc>
+  <lastmod>2018-10-10T15:01:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nckusu.tw/vote/2</loc>
+  <lastmod>2018-10-10T15:01:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nckusu.tw/vote/3</loc>
+  <lastmod>2018-10-10T15:01:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nckusu.tw/vote/4</loc>
+  <lastmod>2018-10-10T15:01:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://nckusu.tw/vote/5</loc>
+  <lastmod>2018-10-10T15:01:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://nckusu.tw/account/login</loc>
+  <lastmod>2018-10-10T15:01:11+00:00</lastmod>
+  <priority>0.60</priority>
+</url>
+
+</urlset>

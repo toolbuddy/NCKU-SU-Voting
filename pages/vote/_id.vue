@@ -38,8 +38,11 @@
       <label>發布者：{{author}}</label>
     </section>
 
-    <section>
+    <section v-if="this.$store.getters.getAuthUser">
       <voting-result v-bind:option1="options.first" v-bind:option2="options.second" v-bind:option3="options.third" v-bind:questionID="id"></voting-result>
+    </section>
+    <section v-if="!this.$store.getters.getAuthUser">
+      <router-link to="/account/login" tag="button"> 請登入後再進行投票 </router-link>
     </section>
     
     <section>
@@ -56,8 +59,9 @@ import RelatedSection from '~/components/announcement/relatedSection.vue'
 export default {
   head () {
     return {
+      title: '成大學生會 - NCKUSU vote',
       meta: [
-        { hid: 'description', name: 'description', content: 'NCKUSU offisial website. Here is the voting page of the website, there will be a article that descriped from the six Tainan mayor candidate' }
+        { hid: 'description', name: 'description', content: '這是成功大學學生會的官方網站，目前所在的位置為投票頁面，在這邊會針對某個議題說明，並且提供投票的功能 | NCKUSU offisial website. Here is the voting page of the website, there will be a article that descriped from the six Tainan mayor candidate' }
       ]
     }
   },
@@ -87,6 +91,10 @@ export default {
 
 <style scoped>
 
+div {
+  padding-bottom: 9.5%;
+}
+
 img {
   width: 100vw;
   height: auto;
@@ -94,11 +102,6 @@ img {
 section {
   box-sizing: border-box;
   padding: 4.8vw 9.5%;
-}
-
-section:last-child {
-  box-sizing: border-box;
-  padding: 0 9.5%;
 }
 
 h1 {
@@ -119,6 +122,18 @@ article {
 section section label {
   color: #707070;
   font-size: 3.74vw;
+}
+
+button {
+  width: 63.2vw;
+  height: 14.94vw;  
+  background-color: #74bfc3;
+  border-radius: 10px;
+  border: none;
+  font-size: 5.34vw;
+  color: #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0 0.8vw 1.6vw rgba(0, 0, 0, 0.16);
 }
 
 .gray-background label {

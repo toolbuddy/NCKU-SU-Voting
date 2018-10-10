@@ -16,7 +16,7 @@ router.get('/getVoted', urlencodedParser, (req, res) => {
   const userID = req.query.userID
   votingOp.getChoice(userID).then(result => {
     res.status(200)
-    res.send(result)
+    res.send(result.toString())
     res.end()
   })
   .catch(error => {

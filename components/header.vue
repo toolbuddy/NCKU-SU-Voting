@@ -2,9 +2,9 @@
   <div>
     <section class="container">
       <router-link to="/" tag="h3">成大學生會</router-link>
-      <svg  width="8vw" height="8vw" v-on:click="handleClickTouch" v-on:touchstart="handleClickTouch">
-        <image v-show="!display" xlink:href="~/assets/img/system/option.svg" width="8vw" height="8vw"></image>
-        <image v-show="display" xlink:href="~/assets/img/system/home.svg" width="8vw" height="8vw"></image>
+      <svg  width="8vw" height="8vw" viewbox="0 0 500 500" v-on:click="handleClickTouch" v-on:touchstart="handleClickTouch">
+        <image v-show="!display" xlink:href="~/assets/img/system/option.svg" width="100%" height="100%"></image>
+        <image v-show="display" xlink:href="~/assets/img/system/home.svg" width="100%" height="100%"></image>
       </svg>
     </section>
     <section class="select-column" v-bind:class="{'column-show': display}">
@@ -29,7 +29,6 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$store.getters.getAuthUser)
     // add scroll up display header, scroll down hide the header
     const handleScroll = function (event) {
       event.preventDefault()

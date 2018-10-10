@@ -2,7 +2,7 @@
   <div>
 
     <router-link v-bind:to="{path: '/detail/1'}" >
-      <img class="homephoto" src="~/assets/img/home.png"/>
+      <img class="homephoto" src="~/assets/img/home.png" alt="學生會重要公告圖片"/>
     </router-link>
     <router-link v-bind:to="{path: '/detail/1'}" >
       <div class="hometitle">
@@ -15,8 +15,8 @@
     
     <div class="article_title">
       <div class="_article_title">
-        <svg class="articleicon" width="22vw" height="22vw">
-          <image xlink:href="~/assets/img/system/fig01.svg" width="22vw" height="22vw"></image>
+        <svg class="articleicon" width="22vw" height="22vw" viewbox="0 0 500 500">
+          <image xlink:href="~/assets/img/system/fig01.svg" width="100%" height="100%"></image>
         </svg>
         <h3>文章總覽</h3>
       </div>
@@ -37,8 +37,8 @@
 
     <div class="graycolor">
       <div class="_graycolor">
-        <svg class="publicstage" width="22vw" height="22vw">
-          <image xlink:href="~/assets/img/system/fig02.svg" width="22vw" height="22vw"></image>
+        <svg class="publicstage" width="22vw" height="22vw" viewbox="0 0 500 500">
+          <image xlink:href="~/assets/img/system/fig02.svg" width="100%" height="100%"></image>
         </svg>
         <h3>公共參與平台</h3>
       </div>
@@ -60,25 +60,25 @@
 
     <div class="graycolor2">
       <div class="_graycolor2">
-        <svg class="mailSuc" width="22vw" height="22vw">
-        <image xlink:href="~/assets/img/system/fig03.svg" width="22vw" height="22vw"></image>
+        <svg class="mailSuc" width="22vw" height="22vw" viewbox="0 0 500 500">
+        <image xlink:href="~/assets/img/system/fig03.svg" width="100%" height="100%"></image>
         </svg>
         <h3>聯絡我們</h3>
       </div>
     </div>
         
-    <svg class="path" v-on:click="sendMessage">
-    <image xlink:href="~/assets/img/system/path.svg" width="5.83vw"></image>
+    <svg class="path" v-on:click="sendMessage" width="5.83vw" height="5.83vw" viewbox="0 0 500 500">
+    <image xlink:href="~/assets/img/system/path.svg" width="100%"></image>
     </svg>
 
     <a href="https://www.facebook.com/NCKUSU/" title="Facebook">        
-        <svg class="link-fb">
-        <image xlink:href="~/assets/img/system/fb.svg" width="10.93vw"></image>
+        <svg class="link-fb" width="10.93vw" height="10.93vw" viewbox="0 0 500 500">
+        <image xlink:href="~/assets/img/system/fb.svg" width="100%"></image>
         </svg>
     </a>
     <a href="https://www.instagram.com/ncku_su/" title="Instagram">      
-        <svg class="link-ig">
-        <image xlink:href="~/assets/img/system/ig.svg" width="10.93vw"></image>
+        <svg class="link-ig" width="10.93vw" height="10.93vw" viewbox="0 0 500 500">
+        <image xlink:href="~/assets/img/system/ig.svg" width="100%"></image>
         </svg>
     </a>
     
@@ -89,7 +89,7 @@
     <br/>
    主旨 <input type="text" class="border" v-model="subject" name="subject" v-validate="{ required: true }" v-bind:class="{ 'is-invalid': send && errors.has('subject') }">
     <br/>
-    <input type="text" class="_border" v-model="content" name="content" v-validate="{ required: true }" v-bind:class="{ 'is-invalid': send && errors.has('content') }">
+    <textarea class="_border" v-model="content" name="content" v-validate="{ required: true }" v-bind:class="{ 'is-invalid': send && errors.has('content') }"> </textarea>
     </form>
 
     
@@ -117,7 +117,7 @@ export default {
   head () {
     return {
       meta: [
-        { hid: 'description', name: 'description', content: 'NCKUSU offisial website. Here is the index page of the website, there will be a general message from the student union and options for other page links.' }
+        { hid: 'description', name: 'description', content: '這是成功大學學生會的官方網站，目前所在的位置為首頁，並且提供概括性的訊息給學生，並且提供選項連結到其他頁面 | NCKUSU offisial website. Here is the index page of the website, there will be a general message from the student union and options for other page links.' }
       ]
     }
   },
@@ -200,12 +200,12 @@ h6 {
 }
 
 img.homephoto {
-  position: absolute;
-  top: 34vw;
   width: 99vw;
-  height: 99vw;
+  height: 99vh;
   display: block;
-  margin: auto;
+  margin: 0 auto;
+  object-fit: cover;
+  object-position: top; 
 }
 
 .hometitle {
