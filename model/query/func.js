@@ -1,64 +1,74 @@
 const db = require('../sqldb')
 const poll = db.models.poll
+const Op = db.sequelize.Op
 
-function select(name, choice) {
-  return new Promise( (resolve, reject) => {
-    isFinished(name)
-    .then( finish => {
-      if (finish) {
-        reject("You have selected before");
-      }
+function select(name, choices) {
 
-      db.sequelize.transaction( t => {
-        poll.create({
-          name: name,
-          choice: choice
-        })
-        .then( res => {
-          resolve('user '+res.getDataValue('name')+' select '+res.getDataValue('choice'))
+  choices.forEach( choice => {
+    const type = parseInt(choice/3)
+    console.log(type)
+
+    // 檢查有沒有投過
+    check(name, type)
+      .then( () => {
+        db.sequelize.transaction( t => {
+          poll.create({
+            name: name,
+            choice: choice
+          })
         })
       })
-    })
   })
 }
 /* example
-select('xxxaba', 1)
+select('xxxaba', [6, 11])
+*/
+
+function getChoice(name) {
+  return new Promise( (resolve, reject) => {
+    poll.findAll({where: {name:name}})
+      .then( res => {
+        ret = []
+        res.forEach( ele => {
+          ret.push(ele.getDataValue('choice'))
+        })
+        resolve(ret)
+      })
+  })
+}
+/* example
+getChoice('xxxaba')
+.then( res => {
+  console.log(res)
+})
+*/
+
+function check(name, type) {
+  console.log(type*3)
+  console.log(type*3+2)
+  console.log("-----------------")
+  return new Promise( (resolve, reject) => {
+    poll.findOne({
+      where: {
+        choice: {
+          [Op.between]: [type*3, type*3+2]
+        },
+        name: name
+      }
+    })
+      .then( res => {
+        if (res == null) resolve(true)
+        else reject(false)
+      })
+  })
+}
+/* example: type 的範圍是0~4
+check('xxxaba', 3) 
 .then( res => {
   console.log(res)
 })
 .catch( err => {
   console.log(err)
-})
-*/
-
-function getChoice(id) {
-	return new Promise( (resolve, reject) => {
-		poll.findById(id)
-		.then( res => {
-			resolve(res.getDataValue('choice'))
-		})
-		.catch( err => {
-			reject("You haven't make your choice")
-		})
-	})
-}
-/* example
-getChoice('xxxaba')
-.then( res => {
-	console.log(res)
-})
-.catch( err => {
-	console.log(err)
-})
- */
-
-function isFinished(name) {
-  return poll.findById(name);
-}
-/* example: null=沒投過
-isFinished('ggg')
-.then( res => {
-  console.log(res);
 })
 */
 
@@ -84,14 +94,14 @@ function rate(id) {
   }
 
   let s = sum(id)
-	let a = poll.count()
+  let a = poll.count()
 
-	return new Promise( (resolve, reject) => {
-		Promise.all([s, a])
-		.then( x => {
-			resolve(x[0]/x[1])
-		})
-	})
+  return new Promise( (resolve, reject) => {
+    Promise.all([s, a])
+      .then( x => {
+        resolve(x[0]/x[1])
+      })
+  })
 }
 
 /* example
@@ -100,8 +110,8 @@ rate(1)
 */
 module.exports = {
   select,
-	getChoice,
-	isFinished,
-	sum,
+  getChoice,
+  check,
+  sum,
   rate,
 }
