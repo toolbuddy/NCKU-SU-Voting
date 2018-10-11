@@ -1,5 +1,5 @@
 <template>
-  <div class="area">
+  <div>
     <img src="~/assets/img/picture_1.jpg"/>
     <section>
       <h1> {{title}} </h1>
@@ -7,26 +7,33 @@
       <article> {{content}} </article>
     </section>
 
+    <section v-if="this.$store.getters.getAuthUser">
+      <voting-result v-bind:option1="options.first" v-bind:option2="options.second" v-bind:option3="options.third" v-bind:questionID="id"></voting-result>
+    </section>
+    <section id="login-button" v-if="!this.$store.getters.getAuthUser">
+      <router-link to="/account/login" tag="button"> 請登入後再進行投票 </router-link>
+    </section>
+
     
     <section class="gray-background">
-      <label> 候選提問一 </label>
-      <article> {{question_1}} </article>
+      <label> {{question_1}} </label>
+      <article> {{question_1_subtitle}} </article>
     </section>
     <section>
       <article> {{question_add_1}} </article>
     </section>
 
     <section class="gray-background">
-      <label> 候選提問二 </label>
-      <article> {{question_2}} </article>
+      <label> {{question_2}} </label>
+      <article> {{question_2_subtitle}} </article>
     </section>
     <section>
       <article> {{question_add_2}} </article>
     </section>
 
     <section class="gray-background">
-      <label> 候選提問三 </label>
-      <article> {{question_3}} </article>
+      <label> {{question_3}} </label>
+      <article> {{question_3_subtitle}} </article>
     </section>
     <section>
       <article> {{question_add_3}} </article>
@@ -38,13 +45,7 @@
       <label>發布者：{{author}}</label>
     </section>
 
-    <section v-if="this.$store.getters.getAuthUser">
-      <voting-result v-bind:option1="options.first" v-bind:option2="options.second" v-bind:option3="options.third" v-bind:questionID="id"></voting-result>
-    </section>
-    <section v-if="!this.$store.getters.getAuthUser">
-      <router-link to="/account/login" tag="button"> 請登入後再進行投票 </router-link>
-    </section>
-    
+        
     <section>
       <related-section v-bind:related="related" title="進入相關文章，票選市長辯論問題："></related-section>
     </section>
@@ -154,4 +155,8 @@ label > time {
 .gray-background {
   background-color: #f6f6f6;
 }
-</style>
+
+#login-button {
+  text-align: center;
+}
+</stye>
