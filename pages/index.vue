@@ -7,8 +7,8 @@
     <router-link v-bind:to="{path: '/detail/1'}" >
       <div class="hometitle">
         <div class="_hometitle">
-        <h1>WHY辯論會？</h1>
-        <h2>一些副標文字，<br>說明這則新聞的內容。</h2>
+        <h1>學生進入政治</h1>
+        <h2>沒有投票權，不能當公民？<br>這一次，我們把學生想像送進市府！</h2>
         </div>
       </div>
     </router-link>
@@ -23,16 +23,9 @@
     </div>
     <div class="article_subtitle">
       <div class="_article_subtitle">
-        <h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5>
+        <h5>喚起年輕世代對政治的想望，<br>以及政治對世代青年的重視。</h5>
       </div>
-      <article-column v-bind:url="image" v-bind:title="title" v-bind:subtitle="subtitle"> </article-column>
-      <article-column v-bind:url="image" v-bind:title="title" v-bind:subtitle="subtitle"> </article-column>
-      <article-column v-bind:url="image" v-bind:title="title" v-bind:subtitle="subtitle"> </article-column>
-    </div>
-    <div class="show_more">
-      <div class="_show_more">
-        <h6>顯示更多</h6>
-      </div>
+      <router-link to="/detail/1"><article-column v-bind:url="image" v-bind:title="title" v-bind:subtitle="subtitle"> </article-column></router-link>
     </div>
 
     <div class="graycolor">
@@ -40,18 +33,22 @@
         <svg class="publicstage" width="22vw" height="22vw" viewbox="0 0 500 500">
           <image xlink:href="~/assets/img/system/fig02.svg" width="100%" height="100%"></image>
         </svg>
-        <h3>公共參與平台</h3>
+        <h3>公民提問投票</h3>
       </div>
     </div>
 
     <div class="publicstage_subtitle">
       <div class="_publicstage_subtitle">
-        <h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5>
+        <h5>五大面向、十五題提問，<br>交由公民投出最終四題，送進辯論會！</h5>
       </div>
-      <div class="box1"><h4>文化</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-      <div class="box2"><h4>教育</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
-      <div class="box3"><h4>轉型正義</h4><h5>解釋的話包含什麼啊有什麼啊，整體<br>而言的一句解釋整體而言的一句釋。</h5></div>
+      <router-link to="/vote/1"><div class="box1"><h4>學生提問</h4><h5>📢 學生進入市府<br>📢 打工違法低薪<br>📢 得過且過的火車站</h5></div></router-link>
+      <router-link to="/vote/2"><div class="box2"><h4>文化提問</h4><h5>📢 文創產業過度商業化<br>📢 文資保存實務困境<br>📢 歷史城區特別條例</h5></div></router-link>
+      <router-link to="/vote/3"><div class="box3"><h4>環境提問</h4><h5>📢 事業廢棄物處理<br>📢 淹水の臺南<br>📢 農地違章工廠</h5></div></router-link>
+      <router-link to="/vote/4"><div class="box4"><h4>交通提問</h4><h5>📢 城鄉發展不均<br>📢 公共運輸網路規劃<br>📢 交通亂象</h5></div></router-link>
+      <router-link to="/vote/5"><div class="box5"><h4>教育提問</h4><h5>📢 性平教育<br>📢 親職支持系統<br>📢 校內不當管教</h5></div></router-link>
     </div>
+
+<!--
     <div class="show_more2">
       <div class="_show_more2">
         <h6>顯示更多</h6>
@@ -91,7 +88,7 @@
     <br/>
     <textarea class="_border" v-model="content" name="content" v-validate="{ required: true }" v-bind:class="{ 'is-invalid': send && errors.has('content') }"> </textarea>
     </form>
-
+-->
     
   </div>
 </template>
@@ -100,7 +97,6 @@
 import axios from '~/plugins/axios'
 import qs from 'querystring'
 import articleColumn from '~/components/articleColumn.vue'
-
 export default {
   name: 'Login',
   components: {
@@ -111,7 +107,8 @@ export default {
       send: false,
       sender: '',
       subject: '',
-      content: ''
+      content: '',
+      show: false
     }
   },
   head () {
@@ -131,7 +128,6 @@ export default {
         method: 'post',
         data: qs.stringify(params)
       })
-      console.log(result.data)
       return result.data
     } catch (error) {
       console.log('Get article failed')
@@ -169,45 +165,38 @@ h1 {
   font-weight: 100px;
   color: white;
 }
-
 h2 {
   font-size: 4.8vw;
   font-weight: 100px;
   color: white;
 }
-
 h3 {
   font-size: 6.93vw;
   font-weight: 100px;
   color:#A2A2A2 ;
 }
-
 h4 {
   color:#A2A2A2 ;
   padding-left: 10vw;
   font-size: 5.33vw;
   text-align: left;
 }
-
 h5 {
   font-size: 4.26vw;
   color: #A2A2A2;
 }
-
 h6 {
   font-size: 4.8vw;
   color: #09A6AA;
 }
-
 img.homephoto {
   width: 99vw;
   height: 99vh;
   display: block;
-  margin: 0 auto;
+  margin: 14vw auto 0 auto;
   object-fit: cover;
   object-position: top; 
 }
-
 .hometitle {
   position: absolute;
   top: 114.8vw;
@@ -219,7 +208,6 @@ img.homephoto {
   border:0px;
   z-index: 0;
 }
-
 ._hometitle {
   position: absolute;
   top: 3vw;
@@ -227,11 +215,9 @@ img.homephoto {
   height: 10vw;
   text-align: left;
 }
-
 .title {
   margin: 30px 0;
 }
-
 .article_title {
   position: absolute;
   top: 182vw;
@@ -240,7 +226,6 @@ img.homephoto {
   height:auto;
   z-index:2;
 }
-
 ._article_title {
   position: absolute;
   top: 0vw;
@@ -248,30 +233,23 @@ img.homephoto {
   height: auto;
   text-align: center;
 }
-
 svg.articleicon {
   
   display: block;
   margin: 0 auto;
 }
-
 .article_subtitle {
   position: absolute;
-  top: 242vw;
+  top: 216vw;
   left: 0vw;
   width: 100vw;
   height:auto;
 }
-
 ._article_subtitle {
-  position: absolute;
-  top: -25vw;
-  left: 14.29vw;
-  height: auto;
-  text-align: left;
+  display: flex;
+  justify-content: center;
   z-index: 2;
 }
-
 img.news1 {
   position: absolute;
   top: 26.78vw;
@@ -281,7 +259,6 @@ img.news1 {
   display: block;
   margin: auto;
 }
-
 img.news2 {
   position: absolute;
   top: 73.21vw;
@@ -291,7 +268,6 @@ img.news2 {
   display: block;
   margin: auto;
 }
-
 img.news3 {
   position: absolute;
   top: 119.64vw;
@@ -301,7 +277,6 @@ img.news3 {
   display: block;
   margin: auto;
 }
-
 .show_more {
   position: absolute;
   top: 375vw;
@@ -309,7 +284,6 @@ img.news3 {
   width: 100vw;
   height:auto;
 }
-
 ._show_more {
   position: absolute;
   top: 3.57vw;
@@ -317,16 +291,14 @@ img.news3 {
   height: 17.86vw;
   text-align: left;
 }
-
 .graycolor {
   position: absolute;
-  top: 400vw;
+  top: 300vw;
   left: 0vw;
   height: 250vw;
   width: 100vw;
   background-color: #F6F6F6;
 }
-
 ._graycolor {
   position: absolute;
   top: 10vw;
@@ -334,31 +306,27 @@ img.news3 {
   height: auto;
   text-align: left;
 }
-
 svg.publicstage {
-  top: -14.4vw;
   display: block;
   margin: 0 auto;
 }
-
 .publicstage_subtitle {
   position: absolute;
-  top: 445vw;
-  left: 0vw;
+  top: 345vw;
   width: 100vw;
-  height:auto;
+  height: auto;
+  margin: 0 auto;
 }
-
 ._publicstage_subtitle {
   position: absolute;
   top: 3.57vw;
   left: 14.3vw;
-  text-align: left;
+  text-align: center;
   z-index: 2;
 }
-
 .box1 {
   position: absolute;
+  boz-sizing: border-box;
   top: 30.36vw;
   left:5vw;
   height: 44.64vw;
@@ -369,12 +337,23 @@ svg.publicstage {
   z-index:2;
   box-shadow: 0px 3px 6px #CDCDCD;
   border-radius: 8px;
-  text-align: center;
+  text-align: left;
   padding:0vw;
 }
 
+.box1 h4 {
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
+
+.box1 h5 {
+  margin-left: 10vw;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
 .box2 {
   position: absolute;
+  boz-sizing: border-box;
   top: 78.57vw;
   left:5vw;
   height: 44.64vw;
@@ -385,12 +364,24 @@ svg.publicstage {
   z-index:2;
   box-shadow: 0px 3px 6px #CDCDCD;
   border-radius: 8px;
-  text-align: center;
+  text-align: left;
   padding:0vw;
+}
+.box2 h4 {
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
+
+
+.box2 h5 {
+  margin-left: 10vw;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
 }
 
 .box3 {
   position: absolute;
+  boz-sizing: border-box;
   top: 126.79vw;
   left:5vw;
   height: 44.64vw;
@@ -401,10 +392,73 @@ svg.publicstage {
   z-index:2;
   box-shadow: 0px 3px 6px #CDCDCD;
   border-radius: 8px;
-  text-align: center;
+  text-align: left;
   padding:0vw;
 }
+.box3 h4 {
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
 
+.box3 h5 {
+  margin-left: 10vw;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
+
+.box4 {
+  position: absolute;
+  boz-sizing: border-box;
+  top: 175.01vw;
+  left:5vw;
+  height: 44.64vw;
+  width: 90vw;
+  display: block;
+  margin: auto;
+  background-color: #FFFFFF;
+  z-index:2;
+  box-shadow: 0px 3px 6px #CDCDCD;
+  border-radius: 8px;
+  text-align: left;
+  padding:0vw;
+}
+.box4 h4 {
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
+
+.box4 h5 {
+  margin-left: 10vw;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
+
+.box5 {
+  position: absolute;
+  boz-sizing: border-box;
+  top: 223.23vw;
+  left:5vw;
+  height: 44.64vw;
+  width: 90vw;
+  display: block;
+  margin: auto;
+  background-color: #FFFFFF;
+  z-index:2;
+  box-shadow: 0px 3px 6px #CDCDCD;
+  border-radius: 8px;
+  text-align: left;
+  padding:0vw;
+}
+.box5 h4 {
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
+
+.box5 h5 {
+  margin-left: 10vw;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+}
 
 
 .show_more2 {
@@ -413,14 +467,12 @@ svg.publicstage {
   left: 0vw;
   width: 100vw;
 }
-
 ._show_more2 {
   position: absolute;
   top: 3.57vw;
   left: 39.29vw;
   text-align: left;
 }
-
 .graycolor2 {
   position: absolute;
   top: 650vw;
@@ -429,7 +481,6 @@ svg.publicstage {
   width: 100vw;
   background-color: #EDEDED;
 }
-
 ._graycolor2 {
   position: absolute;
   top: 15vw;
@@ -437,14 +488,11 @@ svg.publicstage {
   height: auto;
   text-align: left;
 }
-
 svg.mailSuc {
   top: -18vw;
   display: block;
   margin: 0 auto;
 }
-
-
 svg.link-fb {
   position: absolute;
   top: 830vw;
@@ -471,7 +519,6 @@ svg.path{
   z-index:3;
   cursor: pointer;
 }
-
 .email_form {
   position: absolute;
   top: 710vw;
@@ -481,14 +528,12 @@ svg.path{
   line-height:10vw;
   color: #707070;
 }
-
 .border{
   border-radius: 8px;
   border-color: transparent;
   width:63.2vw;
   height:6.13vw;
 }
-
 ._border{
   position: absolute;
   top: 22vw;
@@ -503,3 +548,4 @@ svg.path{
     border: 1px solid #F44336;
   }
 </style>
+

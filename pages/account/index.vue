@@ -24,7 +24,6 @@ export default {
   },
   head () {
     return {
-      title: '成大學生會 - NCKUSU account',
       meta: [
         { hid: 'description', name: 'description', content: '這是成功大學學生會的官方網站，目前所在的位置為登入成功頁面，在這邊會顯示目前有什麼重要訊息可以瀏覽，以及目前釋出的帳號功能 | NCKUSU offisial website. Here is the account page of the website, there will be a particular message from the backend to tell the user about the latest article that has posted and what feature the user can use.' }
       ]

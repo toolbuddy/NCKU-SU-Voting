@@ -73,7 +73,7 @@ check('xxxaba', 3)
 */
 
 function sum(id) {
-  if (id<0 || id>=18) {
+  if (id<0 || id>14) {
     return new Promise( (resolve, reject) => { reject("invalid id")});
   }
   return poll.count({where:{choice: id}})
@@ -88,13 +88,19 @@ sum(1)
 });
 */
 
-function rate(id) {
-  if (id<0 || id>18) {
+function rate(id, type) {
+  if (id<0 || id>14) {
     return new Promise( (resolve, reject) => { reject("invalid id")});
   }
 
   let s = sum(id)
-  let a = poll.count()
+  let a = poll.count({
+    where: {
+        choice: {
+          [Op.between]: [type*3, type*3+2]
+        }
+      }
+  })
 
   return new Promise( (resolve, reject) => {
     Promise.all([s, a])

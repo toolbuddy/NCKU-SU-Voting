@@ -3,28 +3,28 @@
   <div class="container">
     <div class="title" v-show="!isVoted" >關於文化身為學生，我最想知道：</div>
     <div class="title" v-show="isVoted" >目前投票結果：</div>
-    <input type="radio" id ="op1" name="Option" v-on:click="voteColumn(0)"  v-bind:disabled="isVoted" v-bind:checked="isVoted && this.$store.getters.getVote === (questionID - 1) * 3"/>
+    <input type="radio" ref="radio1" id ="op1" name="Option" v-on:click="voteColumn(0)"  v-bind:disabled="isVoted" v-bind:checked="isVoted && voted === (questionID - 1) * 3" v-bind:key="questionID * 3"/>
     <label class="button-1" for="op1"></label>
     <section class="content-1">
       <label class="option-1" for="op1">{{option1}}</label>
-      <div v-bind:class="{ votedBar: this.$store.getters.getVote === 0 }" v-show="isVoted" v-bind:style="{ width: percent_1 + '%' }" type="progress-bar" id="bar-1"></div>
-      <label v-bind:class="{ votedNum: this.$store.getters.getVote === 0 }"  v-show="isVoted" id="percent-1">{{percent_1.toFixed(2) + '%'}}</label>
+      <div v-bind:class="{ votedBar: voted === (questionID - 1) * 3 }" v-show="isVoted" v-bind:style="{ width: percent_1 + '%' }" type="progress-bar" id="bar-1"></div>
+      <label v-bind:class="{ votedNum: voted ===  (questionID - 1) * 3  }"  v-show="isVoted" id="percent-1">{{percent_1.toFixed(2) + '%'}} - {{number_1 + ' 票'}}</label>
     </section>
     
-    <input type="radio" id ="op2" name="Option" v-on:click="voteColumn(1)" v-bind:disabled="isVoted" v-bind:checked="isVoted && this.$store.getters.getVote === (questionID - 1) * 3 + 1"/>
+    <input type="radio" ref="radio2" id ="op2" name="Option" v-on:click="voteColumn(1)" v-bind:disabled="isVoted" v-bind:checked="isVoted && voted === (questionID - 1) * 3 + 1" v-bind:key="questionID * 3 + 1"/>
     <label class="button-2" for="op2"></label> 
     <section class="content-2">
       <label class="option-2" for="op2">{{option2}}</label>
-      <div v-bind:class="{ votedBar: this.$store.getters.getVote === 1 }" v-show="isVoted" v-bind:style="{ width: percent_2 + '%' }"  type="progress-bar" id="bar-2"></div>
-      <label v-bind:class="{ votedNum: this.$store.getters.getVote === 1 }" v-show="isVoted" id="percent-2">{{percent_2.toFixed(2) + '%'}}</label>
+      <div v-bind:class="{ votedBar: voted ===  (questionID - 1) * 3 + 1  }" v-show="isVoted" v-bind:style="{ width: percent_2 + '%' }"  type="progress-bar" id="bar-2"></div>
+      <label v-bind:class="{ votedNum: voted ===  (questionID - 1) * 3 + 1  }" v-show="isVoted" id="percent-2">{{percent_2.toFixed(2) + '%'}} - {{number_2 + ' 票'}}</label>
     </section>
     
-    <input type="radio" id ="op3" name="Option" v-on:click="voteColumn(2)" v-bind:disabled="isVoted" v-bind:checked="isVoted && this.$store.getters.getVote === (questionID - 1) * 3 + 2"/>
+    <input type="radio" ref="radio3" id ="op3" name="Option" v-on:click="voteColumn(2)" v-bind:disabled="isVoted" v-bind:checked="isVoted && voted === (questionID - 1) * 3 + 2" v-bind:key="questionID * 3 + 2"/>
     <label class="button-3" for="op3"></label> 
     <section class="content-3">
       <label class="option-3" for="op3">{{option3}}</label>
-      <div v-bind:class="{ votedBar: this.$store.getters.getVote === 2 }" v-show="isVoted" v-bind:style="{ width: percent_3 + '%' }"  type="progress-bar" id="bar-3"></div>
-      <label v-bind:class="{ votedNum: this.$store.getters.getVote === 2 }" v-show="isVoted" id="percent-3">{{percent_3.toFixed(2) + '%'}}</label>
+      <div v-bind:class="{ votedBar: voted ===  (questionID - 1) * 3 + 2  }" v-show="isVoted" v-bind:style="{ width: percent_3 + '%' }"  type="progress-bar" id="bar-3"></div>
+      <label v-bind:class="{ votedNum: voted ===  (questionID - 1) * 3 + 2  }" v-show="isVoted" id="percent-3">{{percent_3.toFixed(2) + '%'}} - {{number_3 + ' 票'}}</label>
     </section>
   </div>
 </form>
@@ -46,14 +46,32 @@ export default {
       isVoted: false,
       percent_1: 0,
       percent_2: 0,
-      percent_3: 0
+      percent_3: 0,
+      number_1: 0,
+      number_2: 0,
+      number_3: 0,
+      voted: -1
     }
   },
   async mounted () {
     if (this.$store.getters.getAuthUser) {
-      this.isVoted = this.$store.getters.getVote !== -1
+      const lowerBound = (this.questionID - 1) * 3
+      const upperBound = (this.questionID - 1) * 3 + 2
+      const voted = this.$store.getters.getVote
+      for (let iter of voted) {
+        if (iter <= upperBound && iter >= lowerBound) {
+          this.isVoted = true
+          this.voted = iter
+          break
+        }
+      }
       if (this.isVoted) {
         await this.showPercent()
+        const self = this
+        setInterval(async function () {
+          console.log('fetch data')
+          await self.showPercent()
+        }, 300000)
       }
     } else {
       this.isVoted = false
@@ -62,22 +80,34 @@ export default {
   methods: {
     async showPercent () {
       try {
-        this.percent_1 = (await axios.get('/api/getVoteResult?id=' + (this.questionID - 1) * 3)).data * 100
-        this.percent_2 = (await axios.get('/api/getVoteResult?id=' + ((this.questionID - 1) * 3 + 1))).data * 100
-        this.percent_3 = (await axios.get('/api/getVoteResult?id=' + ((this.questionID - 1) * 3 + 2))).data * 100
+        console.log((this.questionID - 1) * 3 + 1)
+        const voteData1 = (await axios.get(`/api/getVoteResult?id=${(this.questionID - 1) * 3}&type=${this.questionID - 1}`)).data
+        const voteData2 = (await axios.get(`/api/getVoteResult?id=${(this.questionID - 1) * 3 + 1}&type=${this.questionID - 1}`)).data
+        const voteData3 = (await axios.get(`/api/getVoteResult?id=${(this.questionID - 1) * 3 + 2}&type=${this.questionID - 1}`)).data
+        this.percent_1 = voteData1.rate * 100
+        this.percent_2 = voteData2.rate * 100
+        this.percent_3 = voteData3.rate * 100
+        this.number_1 = voteData1.number
+        this.number_2 = voteData2.number
+        this.number_3 = voteData3.number
       } catch (error) {
         console.log('get percent data failed!!')
       }
     },
     async voteColumn (index) {
-      console.log('test')
+      let check = confirm('確定投這票嗎？')
+      if (!check) {
+        this.$refs.radio1.checked = this.$refs.radio2.checked = this.$refs.radio3.checked = false
+        return
+      }
       if (!this.isVoted) {
         this.isVoted = true
-        this.$store.dispatch('setVote', index)
+        this.voted = (this.questionID - 1) * 3 + index
+        this.$store.dispatch('addVote', this.voted)
         try {
           const params = {
             userID: this.$store.getters.getAuthUser,
-            choice: (this.questionID - 1) * 3 + index
+            choice: JSON.stringify([(this.questionID - 1) * 3 + index])
           }
           console.log(params)
           await axios('/api/vote', {

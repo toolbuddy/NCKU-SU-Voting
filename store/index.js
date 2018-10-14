@@ -13,8 +13,8 @@ export const mutations = {
     state.authUser = data.userID
     state.vote = data.vote
   },
-  SET_VOTE: (state, data) => {
-    state.vote = data
+  ADD_VOTE: (state, data) => {
+    state.vote.push(data)
   }
 }
 
@@ -25,7 +25,7 @@ export const actions = {
   logout: function ({commit}) {
     return commit('SET_USER', {userID: null, vote: -1})
   },
-  setVote: function ({commit}, data) {
-    return commit('SET_VOTE', data)
+  addVote: function ({commit}, data) {
+    return commit('ADD_VOTE', data)
   }
 }
