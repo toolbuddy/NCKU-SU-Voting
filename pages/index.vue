@@ -1,17 +1,7 @@
 <template>
   <div>
 
-    <router-link v-bind:to="{path: '/detail/1'}" >
-      <img class="homephoto" src="~/assets/img/home.png" alt="學生會重要公告圖片"/>
-    </router-link>
-    <router-link v-bind:to="{path: '/detail/1'}" >
-      <div class="hometitle">
-        <div class="_hometitle">
-        <h1>學生進入政治</h1>
-        <h2>沒有投票權，不能當公民？<br>這一次，我們把學生想像送進市府！</h2>
-        </div>
-      </div>
-    </router-link>
+    <topnews v-bind:topnews="topnews"></topnews>
     
     <div class="article_title">
       <div class="_article_title">
@@ -97,10 +87,13 @@
 import axios from '~/plugins/axios'
 import qs from 'querystring'
 import articleColumn from '~/components/articleColumn.vue'
+import Topnews from '~/components/topnews.vue'
+
 export default {
   name: 'Login',
   components: {
-    articleColumn
+    articleColumn,
+    Topnews
   },
   data () {
     return {
@@ -124,13 +117,16 @@ export default {
         limit: 1,
         offset: 0
       }
-      const result = await axios.post('/api/getArticles', {
+      const result = await axios('/api/getArticles', {
         method: 'post',
         data: qs.stringify(params)
       })
-      return result.data
+      return {
+        topnews: result.data
+      }
     } catch (error) {
       console.log('Get article failed')
+      console.log(error)
     }
   },
   methods: {
