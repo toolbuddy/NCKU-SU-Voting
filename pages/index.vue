@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <topnews v-bind:topnews="topnews"></topnews>
+    <topnews v-bind:topnews="topnews" v-bind:max="topnews.length"></topnews>
     
     <div class="article_title">
       <div class="_article_title">
@@ -15,7 +15,7 @@
       <div class="_article_subtitle">
         <h5>喚起年輕世代對政治的想望，<br>以及政治對世代青年的重視。</h5>
       </div>
-      <router-link to="/detail/1"><article-column v-bind:url="image" v-bind:title="title" v-bind:subtitle="subtitle"> </article-column></router-link>
+      <router-link to="/detail/1"><article-column v-for="(iter, index) of articles" v-bind:key="index" v-bind:url="iter.image" v-bind:title="iter.title" v-bind:subtitle="iter.subtitle"> </article-column></router-link>
     </div>
 
     <div class="graycolor">
@@ -97,6 +97,7 @@ export default {
   },
   data () {
     return {
+      articles: [],
       send: false,
       sender: '',
       subject: '',
@@ -113,14 +114,7 @@ export default {
   },
   async asyncData () {
     try {
-      const params = {
-        limit: 1,
-        offset: 0
-      }
-      const result = await axios('/api/getArticles', {
-        method: 'post',
-        data: qs.stringify(params)
-      })
+      const result = await axios.get('/api/getArticlesCurrent')
       return {
         topnews: result.data
       }
@@ -128,6 +122,9 @@ export default {
       console.log('Get article failed')
       console.log(error)
     }
+  },
+  mounted () {
+    this.articles = this.topnews.slice(0, 3)
   },
   methods: {
     sendMessage: function () {

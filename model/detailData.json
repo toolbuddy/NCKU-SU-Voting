@@ -1,5 +1,5 @@
 {
-  "detail_1": {
+  "1": {
     "title": "學生進入政治",
     "subtitle": "經過學生團隊的激辯、公民團體們協助之後，我們終於產出公民提問的十五道題庫啦！",
     "content": "<br>我們以學生視角觀察在地，針對台南市的五大面向分別提出了三道題目：<br><br> ➤學生提問 <br><br> 　📢 學生進入市府<br>　📢 打工違法低薪<br>　📢 得過且過的火車站<br><br> ➤文化提問<br><br> 　📢 文創產業過度商業化<br>　📢 文資保存實務困境<br>　📢 歷史城區特別條例<br><br>➤環境提問<br><br>　📢 事業廢棄物處理<br>　📢 淹水の臺南<br>　📢 農地違章工廠<br><br> ➤交通提問<br><br> 　📢 城鄉發展不均<br>　📢 公共運輸網路規劃<br>　📢 交通亂象<br><br> ➤教育提問<br><br> 　📢 性平教育<br>　📢 親職支持系統<br>　📢 校內不當管教<br><br> 以上15題提問中，我們都撰寫了 #延伸閱讀 幫大家科普一下現存的市政問題，讓市民可以在充分理解問題意識後登入臉書投票！<br><br>【這些題目誰會出線？】<br><br> ▨ 本次辯論會中將會有4題公民提問的時間<br>▨ 登入臉書後即可投票，每個面向可以投1票(3選1)<br>▨ 每個面向最高票的問題(共計5題)，將取票數最高的4題進入辯論會提問(5取4)<br>▨ 投票截止日期：10/23 22:00！",
@@ -29,34 +29,19 @@
       }
     }
   },
-  "detail_2": {
+  "2": {
     "title": "學生進入政治",
     "subtitle": "經過學生團隊的激辯、公民團體們協助之後，我們終於產出公民提問的十五道題庫啦！",
-    "content": "【候選人介紹｜林義豐】<br><br> 首位從0開始創業，持續50年早上7點到公司打卡，成功經營6家公司的企業集團，同時具備成本行銷和折衷觀念，及走過世界128國放眼天下國際觀的政治CEO，有能力魄力執行力，創新思維，掌控時效且管理靈活，果斷決策，用人唯才，參選台南市長唯一不收大小捐款，承諾當選薪水捐弱勢團體，沒有人情包袱。頭腦靈活，說到做到。<br><br> 📢臉書：<a href='https://www.facebook.com/ceotainan/' target='_blank'>https://www.facebook.com/ceotainan/</a><br><br>📢官網：<a href='http://www.xn--btvt94cw3i.com/'>http://www.xn--btvt94cw3i.com/</a><br><br>📢唉居：<a href='https://www.instagram.com/marklin_ceo/'>https://www.instagram.com/marklin_ceo/</a><br><br>👉提問投票至10/23 22:00！快動動小手投起來🤙<br>🗳️投票網址｜<a href='https://nckusu.tw/' target='_blank'>https://nckusu.tw/</a><br>（請使用手機進入投票網址)",
+    "content": "【候選人介紹｜林義豐】<br><br> 首位從0開始創業，持續50年早上7點到公司打卡，成功經營6家公司的企業集團，同時具備成本行銷和折衷觀念，及走過世界128國放眼天下國際觀的政治CEO，有能力魄力執行力，創新思維，掌控時效且管理靈活，果斷決策，用人唯才，參選台南市長唯一不收大小捐款，承諾當選薪水捐弱勢團體，沒有人情包袱。頭腦靈活，說到做到。<br><br> 📢臉書：<br><a href='https://www.facebook.com/ceotainan/' target='_blank'>https://www.facebook.com/ceotainan/</a><br><br>📢官網：<br><a href='http://www.xn--btvt94cw3i.com/'>http://www.xn--btvt94cw3i.com/</a><br><br>📢唉居：<br><a href='https://www.instagram.com/marklin_ceo/'>https://www.instagram.com/marklin_ceo/</a><br><br>👉提問投票至10/23 22:00！快動動小手投起來🤙<br>🗳️投票網址｜<a href='https://nckusu.tw/' target='_blank'>https://nckusu.tw/</a><br>（請使用手機進入投票網址)",
     "time": "2018-10-15",
     "author": "陳估熊",
     "image": "/articleColumn.png",
     "related": {
-      "first": {
-        "title": "",
-        "url": ""
-      },
-      "second": {
-        "title": "",
-        "url": ""
-      },
-      "third": {
-        "title": "",
-        "url": ""
-      },
-      "forth": {
-        "title": "",
-        "url": ""
-      },
-      "fifth": {
-        "title": "",
-        "url": ""
-      }
+      "first": null,
+      "second": null,
+      "third": null,
+      "forth": null,
+      "fifth": null
     }
   }
 }
