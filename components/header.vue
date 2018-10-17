@@ -2,7 +2,7 @@
   <div>
     <section class="container">
       <router-link to="/" tag="h3">成大學生會</router-link>
-      <svg  width="8vw" height="8vw" viewbox="0 0 500 500" v-on:click="handleClickTouch" v-on:touchstart="handleClickTouch">
+      <svg width="8vw" height="8vw" viewbox="0 0 500 500" v-on:click="handleClickTouch" v-on:touchstart="handleClickTouch">
         <image v-show="!display" xlink:href="~/assets/img/system/option.svg" width="100%" height="100%"></image>
         <image v-show="display" xlink:href="~/assets/img/system/home.svg" width="100%" height="100%"></image>
       </svg>
