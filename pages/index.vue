@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <topnews v-bind:topnews="topnews" v-bind:max="topnews.length"></topnews>
     
     <div class="article_title">
@@ -15,7 +14,7 @@
       <div class="_article_subtitle">
         <h5>喚起年輕世代對政治的想望，<br>以及政治對世代青年的重視。</h5>
       </div>
-      <router-link to="/detail/1"><article-column v-for="(iter, index) of articles" v-bind:key="index" v-bind:url="iter.image" v-bind:title="iter.title" v-bind:subtitle="iter.subtitle"> </article-column></router-link>
+      <router-link v-for="(iter, index) of articles" v-bind:key="index" v-bind:to="`/detail/${iter.id}`"><article-column v-bind:url="iter.image" v-bind:title="iter.title" v-bind:subtitle="iter.subtitle"> </article-column></router-link>
     </div>
 
     <div class="graycolor">
@@ -155,17 +154,14 @@ export default {
 <style scoped>
 h1 {
   font-size: 6.93vw;
-  font-weight: 100px;
   color: white;
 }
 h2 {
   font-size: 4.8vw;
-  font-weight: 100px;
   color: white;
 }
 h3 {
   font-size: 6.93vw;
-  font-weight: 100px;
   color:#A2A2A2 ;
 }
 h4 {
@@ -242,6 +238,7 @@ svg.articleicon {
   display: flex;
   justify-content: center;
   z-index: 2;
+  margin-bottom: 7vw;
 }
 img.news1 {
   position: absolute;
@@ -286,15 +283,15 @@ img.news3 {
 }
 .graycolor {
   position: absolute;
-  top: 300vw;
+  top: 325vw;
   left: 0vw;
-  height: 250vw;
+  height: 300vw;
   width: 100vw;
   background-color: #F6F6F6;
 }
 ._graycolor {
   position: absolute;
-  top: 10vw;
+  top: 5vw;
   left: 29vw;
   height: auto;
   text-align: left;
@@ -305,7 +302,7 @@ svg.publicstage {
 }
 .publicstage_subtitle {
   position: absolute;
-  top: 345vw;
+  top: 360vw;
   width: 100vw;
   height: auto;
   margin: 0 auto;
@@ -320,7 +317,7 @@ svg.publicstage {
 .box1 {
   position: absolute;
   boz-sizing: border-box;
-  top: 30.36vw;
+  top: 20.36vw;
   left:5vw;
   height: 44.64vw;
   width: 90vw;
@@ -347,7 +344,7 @@ svg.publicstage {
 .box2 {
   position: absolute;
   boz-sizing: border-box;
-  top: 78.57vw;
+  top: 68.57vw;
   left:5vw;
   height: 44.64vw;
   width: 90vw;
@@ -375,7 +372,7 @@ svg.publicstage {
 .box3 {
   position: absolute;
   boz-sizing: border-box;
-  top: 126.79vw;
+  top: 116.79vw;
   left:5vw;
   height: 44.64vw;
   width: 90vw;
@@ -402,7 +399,7 @@ svg.publicstage {
 .box4 {
   position: absolute;
   boz-sizing: border-box;
-  top: 175.01vw;
+  top: 165.01vw;
   left:5vw;
   height: 44.64vw;
   width: 90vw;
@@ -429,7 +426,7 @@ svg.publicstage {
 .box5 {
   position: absolute;
   boz-sizing: border-box;
-  top: 223.23vw;
+  top: 213.23vw;
   left:5vw;
   height: 44.64vw;
   width: 90vw;

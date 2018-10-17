@@ -73,13 +73,11 @@ div {
 
 h1 {
   font-size: 6.4vw;
-  font-weight: 100;
   color: white;
   margin-top: 5vw;
 }
 h2 {
   font-size: 4.8vw;
-  font-weight: 100;
   color: white;
 }
 
@@ -149,7 +147,7 @@ li {
 
 .slide-left-leave-active,
 .slide-left-enter-active {
-  transition: .4s ease-in-out;
+  transition: .3s ease-out;
 }
 .slide-left-enter {
   transform: translate(100%, 0);
@@ -160,7 +158,7 @@ li {
 
 .slide-right-leave-active,
 .slide-right-enter-active {
-  transition: .4s ease-in-out;
+  transition: .3s ease-out;
 }
 .slide-right-enter {
   transform: translate(-100%, 0);
