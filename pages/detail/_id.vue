@@ -8,7 +8,7 @@
       <h2>{{subtitle}}</h2>
       <section>
         <p v-html="content"></p>
-        <related-section v-bind:related="related" title="現在就快去投票！"></related-section>
+        <related-section v-if="related.first" v-bind:related="related" title="現在就快去投票！"></related-section>
       </section>
     </section>
   </div>
@@ -33,11 +33,12 @@ export default {
     RelatedSection
   },
   async asyncData ({ params, error }) {
-    if (parseInt(params.id) !== 1) {
-      error({ statusCode: 404, message: 'Page not found' })
-    }
     try {
-      const result = await axios.get(`/api/getDetailContent?id=${params.id}`)
+      const length = parseInt((await axios.get('/api/getArticlesNumber')).data)
+      if (parseInt(params.id) > length) {
+        error({ statusCode: 404, message: 'Page not found' })
+      }
+      const result = await axios.get(`/api/getArticles?id=${params.id}`)
       return result.data
     } catch (error) {
       console.log('Get detail content failed!!')
