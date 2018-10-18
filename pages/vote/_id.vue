@@ -44,7 +44,7 @@
       <label> {{question_3}} </label>
       <article> {{question_3_subtitle}} 
         <label v-if="!third"> ...(點擊展開) </label>
-        <label v-if="third"> ...(點擊關閉) </label>
+        <label v-if="third"> ...(點 擊關閉) </label>
       </article>
     </section>
     <transition name="slide">
@@ -90,7 +90,7 @@ export default {
     try {
       const result = await axios.get(`/api/getVoteContent?id=${params.id}`)
       result.data.id = parseInt(params.id)
-      const related = await axios.get(`/api/getArticles?id=1`)
+      const related = await axios.get(`/api/getAnnouncementById?id=1`)
       result.data.related = related.data.related
       return result.data
     } catch (error) {
@@ -102,10 +102,6 @@ export default {
 </script>
 
 <style scoped>
-
-div {
-  padding-bottom: 9.5%;
-}
 
 img {
   margin-top: 14vw;

@@ -18,7 +18,8 @@ module.exports = {
     ],
     script: [
       { src: '/js/fb-sdk.js' },
-      { src: 'https://use.fontawesome.com/6fac2730d4.js' }
+      { src: 'https://use.fontawesome.com/6fac2730d4.js' },
+      { src: 'https://www.googletagmanager.com/gtag/js?id=UA-25295802-2' }
     ]
   },
   /*

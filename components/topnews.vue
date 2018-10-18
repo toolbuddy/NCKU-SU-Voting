@@ -2,10 +2,10 @@
   <div>
     <transition-group v-bind:name="scroll ? 'slide-left' : 'slide-right'">
       <section v-bind:key="index" class="img-slider">
-        <router-link v-bind:to="{path: `/detail/${topnews[index].id}`}" >
+        <router-link v-bind:to="{path: `/announcement/detail/${topnews[index].id}`}" >
           <img v-bind:src="topnews[index].image" alt="學生會重要公告圖片"/>
         </router-link>
-        <router-link v-bind:to="{path: `/detail/${topnews[index].id}`}" >
+        <router-link v-bind:to="{path: `/announcement/detail/${topnews[index].id}`}" >
           <section class="title">
             <h1> {{topnews[index].title}} </h1>
             <h2> {{topnews[index].subtitle}} </h2>
@@ -16,7 +16,7 @@
     <i class="fas fa-caret-left left" v-on:click="shift(0)"></i>
     <i class="fas fa-caret-right right" v-on:click="shift(1)"></i>
     <section class="status">
-      <svg v-bind:width="topnews.length * 20 + 20" height="20">
+      <svg v-bind:width="topnews.length * 20 + 5" height="20">
         <circle v-for="iter of topnews.length" v-bind:key="iter" v-bind:cx="(iter - 1) * 20 + 10" cy="10" r="3.5" v-bind:stroke-width="index === iter - 1 ? 0 : 1" stroke="#6f6f70" v-bind:fill="index === iter - 1 ? '#6f6f70' : 'transparent'" />
       </svg>
     </section>

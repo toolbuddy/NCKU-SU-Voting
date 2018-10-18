@@ -9,8 +9,8 @@
         <h3>文章總覽</h3>
         <h5>喚起年輕世代對政治的想望，<br>以及政治對世代青年的重視。</h5>
       </span>
-      <router-link v-for="(iter, index) of articles" v-bind:key="index" v-bind:to="`/detail/${iter.id}`"><article-column v-bind:url="iter.image" v-bind:title="iter.title" v-bind:subtitle="iter.subtitle"> </article-column></router-link>
-      <router-link v-if="topnews.length > 3" to="/" > <label class="green-color">顯示更多</label> </router-link>
+      <router-link v-for="(iter, index) of announcements" v-bind:key="index" v-bind:to="`/announcement/detail/${iter.id}`"><announcement-column v-bind:url="iter.image" v-bind:title="iter.title" v-bind:subtitle="iter.subtitle"> </announcement-column></router-link>
+      <router-link v-if="topnews.length > 3" to="/announcement/" > <label class="green-color">顯示更多</label> </router-link>
     </section>
     <section class="gray-background grid grid-gap-6">
       <span class="grid">
@@ -32,18 +32,18 @@
 <script>
 import axios from '~/plugins/axios'
 import qs from 'querystring'
-import articleColumn from '~/components/articleColumn.vue'
+import announcementColumn from '~/components/announcement/column.vue'
 import Topnews from '~/components/topnews.vue'
 
 export default {
   name: 'Login',
   components: {
-    articleColumn,
+    announcementColumn,
     Topnews
   },
   data () {
     return {
-      articles: [],
+      announcements: [],
       send: false,
       sender: '',
       subject: '',
@@ -60,17 +60,17 @@ export default {
   },
   async asyncData () {
     try {
-      const result = await axios.get('/api/getArticlesCurrent')
+      const result = await axios.get('/api/getAnnouncementsCurrent')
       return {
         topnews: result.data
       }
     } catch (error) {
-      console.log('Get article failed')
+      console.log('Get announcement current failed')
       console.log(error)
     }
   },
   mounted () {
-    this.articles = this.topnews.slice(0, 3)
+    this.announcements = this.topnews.slice(0, 3)
   },
   methods: {
     sendMessage: function () {
