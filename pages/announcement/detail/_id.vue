@@ -23,7 +23,7 @@ export default {
   head () {
     return {
       meta: [
-        { hid: 'description', name: 'description', content: '這是成功大學學生會的官方網站，目前所在位置為詳細公告的頁面，在這邊會顯示某個文章的詳細內容 | NCKUSU offisial website. Here is the detail page of the website, there will be detailed article content render for a topic.' }
+        { hid: 'description', name: 'description', content: '這是成功大學學生會的官方網站，目前所在位置為詳細公告的頁面，在這邊會顯示某個文章的詳細內容 | NCKUSU offisial website. Here is the detail page of the website, there will be detailed announcement content render for a topic.' }
       ]
     }
   },
@@ -34,11 +34,11 @@ export default {
   },
   async asyncData ({ params, error }) {
     try {
-      const length = parseInt((await axios.get('/api/getArticlesNumber')).data)
+      const length = parseInt((await axios.get('/api/getAnnouncementsNumber')).data)
       if (parseInt(params.id) > length) {
         error({ statusCode: 404, message: 'Page not found' })
       }
-      const result = await axios.get(`/api/getArticles?id=${params.id}`)
+      const result = await axios.get(`/api/getAnnouncementById?id=${params.id}`)
       return result.data
     } catch (error) {
       console.log('Get detail content failed!!')

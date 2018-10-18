@@ -23,7 +23,13 @@ router.get('/getVoteContent', urlencodedParser, (req, res) => {
   res.json(voteData[`proposal_${id}`])
 })
 
-router.get('/getArticles', urlencodedParser, (req, res) => {
+router.get('/getAnnouncements', urlencodedParser, (req, res) => {
+  res.status(200)
+  res.send(JSON.stringify(detailData))
+  res.end()
+})
+
+router.get('/getAnnouncementById', urlencodedParser, (req, res) => {
   const id = parseInt(req.query.id) - 1
   if (id < 0) {
     res.status(500)
@@ -37,7 +43,7 @@ router.get('/getArticles', urlencodedParser, (req, res) => {
 })
 
 
-router.get('/getArticlesCurrent', urlencodedParser, (req, res) => {
+router.get('/getAnnouncementsCurrent', urlencodedParser, (req, res) => {
   // sort the detail by time
   let sortedData = Object.keys(detailData).map(target => {
     const iter = detailData[target]
@@ -55,7 +61,7 @@ router.get('/getArticlesCurrent', urlencodedParser, (req, res) => {
   res.end()
 })
 
-router.get('/getArticlesNumber', urlencodedParser, (req, res) => {
+router.get('/getAnnouncementsNumber', urlencodedParser, (req, res) => {
   res.status(200)
   res.send(Object.keys(detailData).length.toString())
   res.end()
