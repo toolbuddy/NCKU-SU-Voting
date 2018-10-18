@@ -1,7 +1,7 @@
 <template>
 <form>
   <div class="container">
-    <div class="title" v-show="!isVoted" >關於文化身為學生，我最想知道：</div>
+    <div class="title" v-show="!isVoted" >關於{{type}}身為學生，我最想知道：</div>
     <div class="title" v-show="isVoted" >目前投票結果：</div>
     <input type="radio" ref="radio1" id ="op1" name="Option" v-on:click="voteColumn(0)"  v-bind:disabled="isVoted" v-bind:checked="isVoted && voted === (questionID - 1) * 3" v-bind:key="questionID * 3"/>
     <label class="button-1" for="op1"></label>
@@ -39,7 +39,8 @@ export default {
     option1: String,
     option2: String,
     option3: String,
-    questionID: Number
+    questionID: Number,
+    type: String
   },
   data () {
     return {
@@ -50,10 +51,28 @@ export default {
       number_1: 0,
       number_2: 0,
       number_3: 0,
-      voted: -1
+      voted: -1,
+      type: ''
     }
   },
   async mounted () {
+    switch (this.questionID) {
+      case 1:
+        this.type = '學生'
+        break
+      case 2:
+        this.type = '文化'
+        break
+      case 3:
+        this.type = '環境'
+        break
+      case 4:
+        this.type = '交通'
+        break
+      case 5:
+        this.type = '教育'
+        break
+    }
     if (this.$store.getters.getAuthUser) {
       const lowerBound = (this.questionID - 1) * 3
       const upperBound = (this.questionID - 1) * 3 + 2

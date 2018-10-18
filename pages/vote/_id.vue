@@ -90,7 +90,7 @@ export default {
     try {
       const result = await axios.get(`/api/getVoteContent?id=${params.id}`)
       result.data.id = parseInt(params.id)
-      const related = await axios.get(`/api/getDetailContent?id=1`)
+      const related = await axios.get(`/api/getArticles?id=1`)
       result.data.related = related.data.related
       return result.data
     } catch (error) {

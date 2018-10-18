@@ -31,7 +31,7 @@ export default {
   },
   async asyncData () {
     try {
-      const result = await axios.get(`/api/getDetailContent?id=1`)
+      const result = await axios.get(`/api/getArticles?id=1`)
       return {
         related: result.data.related
       }
